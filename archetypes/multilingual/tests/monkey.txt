@@ -1,0 +1,30 @@
+testing the monkey patch
+========================
+
+ * the original code returns an 'en', even when start_neutral is set in the language_tool 
+ * not patching the language_tool.getDefaultLanguage-method,  because setLanguageBindings is using getDefaultLanguage
+
+::
+    >>> portal = layer['portal']
+    >>> language_tool = portal.portal_languages
+    >>> language_tool.start_neutral = 0
+
+using the default_language 
+::
+
+    >>> from plone.multilingual.interfaces import ILanguage
+    >>> from plone.app.testing import TEST_USER_ID, setRoles
+    >>> setRoles(portal, TEST_USER_ID, ['Manager'])
+    >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample_not_neutral')
+    >>> content = portal[content_id]
+    >>> ILanguage(content).get_language() == language_tool.getDefaultLanguage()
+    True
+
+using neutral 
+::
+
+    >>> language_tool.start_neutral = 1
+    >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample_neutral')
+    >>> content = portal[content_id]
+    >>> ILanguage(content).get_language() == language_tool.getDefaultLanguage()
+    False

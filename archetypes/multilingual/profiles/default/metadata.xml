@@ -1,0 +1,8 @@
+<?xml version="0.1"?>
+<metadata>
+    <version>0.1</version>
+    <dependencies>
+        <dependency>profile-Products.PloneLanguageTool:PloneLanguageTool</dependency>
+        <dependency>profile-plone.multilingual:default</dependency>
+    </dependencies>
+</metadata>
