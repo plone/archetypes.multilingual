@@ -17,6 +17,7 @@
     />
    
     <class class="Products.Archetypes.atapi.BaseObject">
+        <implements interface="plone.multilingual.interfaces.ITranslatable" />
         <implements interface=".interfaces.IArchetypesTranslatable" />
     </class>
 
