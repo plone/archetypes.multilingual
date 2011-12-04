@@ -5,7 +5,7 @@ version = '0.1'
 
 setup(name='archetypes.multilingual',
       version=version,
-      description="multilingual support for archetypes",
+      description="Multilingual support for archetypes",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
@@ -17,7 +17,7 @@ setup(name='archetypes.multilingual',
       keywords='',
       author='awello',
       author_email='awello@gmail.com',
-      url='http://svn.plone.org/svn/collective/',
+      url='https://github.com/plone/archetypes.multilingual',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['archetypes'],
@@ -38,6 +38,4 @@ setup(name='archetypes.multilingual',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
