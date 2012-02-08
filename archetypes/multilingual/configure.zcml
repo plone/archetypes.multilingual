@@ -7,14 +7,6 @@
     >
 
     <includeDependencies package="." />
-
-    <genericsetup:registerProfile
-        name="default"
-        title="archetypes.multilingual"
-        directory="profiles/default"
-        description="Installs the archetypes.multilingual package"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-    />
    
     <class class="Products.Archetypes.atapi.BaseObject">
         <implements interface="plone.multilingual.interfaces.ITranslatable" />
