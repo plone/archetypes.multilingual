@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<componentregistry>
+  <adapters>
+    <adapter
+      for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
+      provides="plone.multilingual.interfaces.ITranslationCloner"
+      factory="archetypes.multilingual.cloner.Cloner"
+    />
+    <adapter
+      for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
+      provides="plone.multilingual.interfaces.ILanguageIndependentFieldsManager"
+      factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"
+    />
+  </adapters>
+</componentregistry>
+

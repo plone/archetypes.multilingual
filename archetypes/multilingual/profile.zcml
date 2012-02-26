@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="archetypes.multilingual">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="archetypes.multilingual"
+      description="Multilingual support for Archetypes"
+      directory="profiles/default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>
