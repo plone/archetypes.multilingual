@@ -9,6 +9,7 @@ from archetypes.multilingual.tests._testing import (
     optionflags,
 )
 integration_tests = [
+    'languageindependentfields.txt',
     'multilingual.txt',
     'monkey.txt',
 

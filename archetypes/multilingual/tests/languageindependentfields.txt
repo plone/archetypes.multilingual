@@ -1,0 +1,69 @@
+testing language-independent content
+====================================
+
+This file is not yet finished. We need to register an Archetype with
+LanguageIndependent fields and test against that... (look at
+doctest_behavior.txt in plone.multilingualbehavior).
+
+::
+    >>> from plone.app.testing import ( 
+    ...     TEST_USER_ID, 
+    ...     TEST_USER_NAME, 
+    ...     TEST_USER_PASSWORD,
+    ...     login,
+    ...     setRoles
+    ... )
+
+    >>> from plone.testing.z2 import Browser
+
+    >>> browser = Browser(layer['app'])
+    >>> browser.handleErrors = False
+    >>> portal = layer['portal']
+
+    >>> browser.addHeader('Authorization', 'Basic %s:%s' %(TEST_USER_NAME, TEST_USER_PASSWORD))
+    >>> setRoles(portal, TEST_USER_ID, ['Manager'])
+    >>> login(portal, TEST_USER_NAME)
+
+create an Archetypes object::
+        
+    >>> content_id = portal.invokeFactory(type_name='Document', id="samplecontent")
+    >>> portal[content_id].setTitle("Sample Content")
+
+We should be able to access the object, it should provide the marker
+interface ``plone.multilingual.interfaces.ITranslatable`` and 
+``plone.multilingual.interfaces.IArchetypesTranslatable``::
+
+    >>> obj = portal.get(content_id)
+    >>> from plone.multilingual.interfaces import ITranslatable
+    >>> ITranslatable.providedBy(obj)
+    True
+
+    >>> from archetypes.multilingual.interfaces import IArchetypesTranslatable
+    >>> IArchetypesTranslatable.providedBy(obj)
+    True
+
+We should also be able to access the adapter for ``plone.multilingual.interfaces.ILanguage``::
+
+    >>> from plone.multilingual.interfaces import ILanguage
+    >>> from zope.component import queryAdapter
+    >>> adapter = queryAdapter(obj, ILanguage)
+    >>> adapter == None
+    False
+
+set the language ::
+    
+    >>> adapter.set_language('af')
+
+get the language::
+
+    >>> adapter.get_language()
+    'af'
+
+Translate the object::
+
+    >>> from plone.multilingual.interfaces import ITranslationManager
+    >>> manager = ITranslationManager(portal[content_id])
+    >>> manager.add_translation('en')
+    >>> obj_en = manager.get_translation('en')
+    >>> import transaction; transaction.commit()
+
