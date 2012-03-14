@@ -6,6 +6,9 @@ from plone.multilingual.interfaces import ILanguageIndependentFieldsManager
 class LanguageIndependentFieldsManager(object):
     interface.implements(ILanguageIndependentFieldsManager)
 
+    def __init__(self, context):
+        self.context = context
+
     def _copy_field(self, field, translation):
         accessor = field.getEditAccessor(self.context)
         if not accessor:

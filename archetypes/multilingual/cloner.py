@@ -12,4 +12,5 @@ class Cloner(object):
         self.context = context
 
     def __call__(self, obj):
-        ILanguageIndependentFieldsManager(self.context).copy_fields(obj)
+        li_clonner = ILanguageIndependentFieldsManager(self.context)
+        li_clonner.copy_fields(obj)
