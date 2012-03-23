@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+    <object name="archetypesmultilingual" meta_type="Filesystem Directory View"
+        directory="archetypes.multilingual:skins/archetypesmultilingual"/>
+    <skin-path name="*">
+      <layer name="archetypesmultilingual" insert-after="custom"/>
+    </skin-path>
+</object>

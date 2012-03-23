@@ -4,27 +4,33 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:monkey="http://namespaces.plone.org/monkey"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    >
+    xmlns:cmf="http://namespaces.zope.org/cmf">
 
     <includeDependencies package="." />
 
     <include file="profile.zcml" />
-   
+
     <class class="Products.Archetypes.atapi.BaseObject">
         <implements interface="plone.multilingual.interfaces.ITranslatable" />
         <implements interface=".interfaces.IArchetypesTranslatable" />
     </class>
 
-    <adapter 
+    <adapter
         for=".interfaces.IArchetypesTranslatable"
-        provides="plone.multilingual.interfaces.ILanguage" 
-        factory=".language.ATLanguage" 
+        provides="plone.multilingual.interfaces.ILanguage"
+        factory=".language.ATLanguage"
     />
-    
+
     <monkey:patch
         class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
         original="defaultLanguage"
-        replacement=".monkey.default_language"   
+        replacement=".monkey.default_language"
     />
+
+  <cmf:registerDirectory
+      name="skins"
+      directory="skins"
+      recursive="True"
+      />
 
 </configure>
