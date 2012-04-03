@@ -1,0 +1,9 @@
+Changelog
+=========
+
+1.0a1 - 2012-4-3
+----------------
+
+- Added needed babel view template [sneridagh]
+- Language independent field implementation [jcbrand]
+- ILanguage implementation [awello]

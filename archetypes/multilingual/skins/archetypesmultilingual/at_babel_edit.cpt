@@ -49,6 +49,8 @@
                condition="macro">
       <metal:block use-macro="macro" />
     </tal:block>
+    <script src="++resource++plone.app.multilingual.javascript/loadContentToTranslateFrom.js">
+    </script>
     <tal:js condition="js"
             repeat="item js">
       <script type="text/javascript"
@@ -89,6 +91,8 @@
               <div id="trans-selector"
                    tal:define="languages pamview/languages;">
                   <h1>ORIGINAL</h1>
+                  <input type="hidden" id="url_translate" value="" tal:attributes="value context/absolute_url"/>
+                  <input type="hidden" id="gtanslate_service" value="" tal:attributes="value pamview/gtenabled"/>
                   <select id="lang-select">
                       <tal:block repeat="lang languages">
                           <option value="" tal:attributes="value lang/url" tal:content="lang/name">
@@ -103,11 +107,12 @@
           </div>
           <div class='cell width-8 position-8'>
             <div id="header-translation">
-                <h1>TRANSLATION TO <span tal:replace="context/language"></span></h1>
+                <h1>TRANSLATION TO <span tal:replace="context/Language"></span></h1>
             </div>
-
-            <metal:use_body use-macro="body_macro" />
-            <metal:use_footer use-macro="footer_macro" />
+            <div id="form-target">
+              <metal:use_body use-macro="body_macro" />
+              <metal:use_footer use-macro="footer_macro" />
+            </div>
           </div>
         </div>
       </metal:main>
