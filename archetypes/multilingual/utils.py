@@ -3,6 +3,7 @@ from zope import interface
 
 from plone.multilingual.interfaces import ILanguageIndependentFieldsManager
 
+
 class LanguageIndependentFieldsManager(object):
     interface.implements(ILanguageIndependentFieldsManager)
 
@@ -25,7 +26,6 @@ class LanguageIndependentFieldsManager(object):
             field.set(translation, data)
 
     def copy_fields(self, translation):
-        source_schema = self.context.Schema()
         dest_schema = translation.Schema()
         schema = self.context.Schema()
         fields = schema.filterFields(languageIndependent=True)
