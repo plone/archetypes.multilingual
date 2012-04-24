@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0a1 - 2012-4-3
-----------------
+1.0a1 - 2012-04-03
+------------------
 
 - Added needed babel view template [sneridagh]
 - Language independent field implementation [jcbrand]
