@@ -95,7 +95,7 @@
                   <input type="hidden" id="gtanslate_service" value="" tal:attributes="value pamview/gtenabled"/>
                   <select id="lang-select">
                       <tal:block repeat="lang languages">
-                          <option value="" tal:attributes="value lang/url" tal:content="lang/name">
+                          <option value="" tal:attributes="value lang/url; selected python:lang['selected'] and 'selected'" tal:content="lang/name">
                               Language
                           </option>
                       </tal:block>
