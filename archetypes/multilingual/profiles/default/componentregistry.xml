@@ -12,5 +12,12 @@
       factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"
     />
   </adapters>
+  <subscribers>
+    <subscriber
+      for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler="archetypes.multilingual.subscriber.handler"
+      />
+  </subscribers>
 </componentregistry>
 

@@ -9,6 +9,7 @@ from plone.app.testing import (
     FunctionalTesting,
 )
 from zope.configuration import xmlconfig
+from plone.testing import z2
 
 
 class ArchetypesMultilingualLayer(PloneSandboxLayer):
@@ -17,12 +18,19 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         # load ZCML
         import archetypes.multilingual
+        import archetypes.testcase
+
         xmlconfig.file('configure.zcml', archetypes.multilingual,
                         context=configurationContext)
+        xmlconfig.file('configure.zcml', archetypes.testcase,
+                        context=configurationContext)
+
+        z2.installProduct(app, 'archetypes.testcase')
 
     def setUpPloneSite(self, portal):
         # install into the Plone site
         applyProfile(portal, 'archetypes.multilingual:default')
+        applyProfile(portal, 'archetypes.testcase:default')
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
 
