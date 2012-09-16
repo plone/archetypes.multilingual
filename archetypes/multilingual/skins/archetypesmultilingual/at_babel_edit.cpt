@@ -26,7 +26,7 @@
                    isLocked isLocked | lock_info/is_locked_for_current_user | nothing;
                    css python:context.getUniqueWidgetAttr(fields, 'helper_css');
                    js python:context.getUniqueWidgetAttr(fields, 'helper_js');
-                   pamview context/@@babel_utils;">
+                   pamutils context/@@babel_utils;">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xml:lang="en"
@@ -37,7 +37,10 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
 
-  <metal:head fill-slot="top_slot">
+  <metal:head fill-slot="top_slot"
+              tal:define="dummy python:request.set('disable_border',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',1);">
     <tal:block define="macro edit_macros/topslot | nothing"
                     condition="macro">
       <metal:block use-macro="macro" />
@@ -49,7 +52,7 @@
                condition="macro">
       <metal:block use-macro="macro" />
     </tal:block>
-    <script src="++resource++plone.app.multilingual.javascript/loadContentToTranslateFrom.js">
+    <script src="++resource++plone.app.multilingual.javascript/at_helper.js">
     </script>
     <tal:js condition="js"
             repeat="item js">
@@ -88,18 +91,20 @@
         <metal:use_typedescription use-macro="typedescription_macro" />
         <div class='row' id='babel-edit'>
           <div class='cell width-8 position-0'>
+              <h1>Available translations for this content</h1>
               <div id="trans-selector"
-                   tal:define="languages pamview/languages;">
-                  <h1>ORIGINAL</h1>
+                   tal:define="languages pamutils/translated_languages;">
                   <input type="hidden" id="url_translate" value="" tal:attributes="value context/absolute_url"/>
-                  <input type="hidden" id="gtanslate_service" value="" tal:attributes="value pamview/gtenabled"/>
-                  <select id="lang-select">
-                      <tal:block repeat="lang languages">
-                          <option value="" tal:attributes="value lang/url; selected python:lang['selected'] and 'selected'" tal:content="lang/name">
-                              Language
-                          </option>
-                      </tal:block>
-                  </select>
+                  <input type="hidden" id="gtanslate_service" value="" tal:attributes="value pamutils/gtenabled"/>
+                  <div class="btn-group">
+                    <tal:block repeat="lang languages">
+                      <button class="btn"
+                              tal:attributes="data-url string:${lang/obj/absolute_url}/babel_view;
+                                              class python:lang['isDefault'] and 'btn active' or 'btn';
+                                              name string:button-${lang/info/name}"
+                              tal:content="lang/info/name">Language</button>
+                    </tal:block>
+                  </div>
               </div>
               <div id="frame-content">
                   The content should be there
