@@ -10,3 +10,7 @@ def default_language(self):
     else:
         language = language_tool.getDefaultLanguage()
     return language
+
+
+def isVisible(self, instance, mode='view'):
+    return 'invisible'
