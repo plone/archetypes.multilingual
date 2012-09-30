@@ -19,10 +19,8 @@ def default_language(self):
         language = u""
     elif IPloneSiteRoot.implementedBy(parent):
         language = language_tool.getPreferredLanguage()
-    elif IArchetypesTranslatable.providedBy(parent):
-        language = ILanguage(parent).get_language()
     else:
-        language = u"wedonotcare"
+        language = ILanguage(parent).get_language()
     return language
 
 
