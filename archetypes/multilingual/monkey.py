@@ -8,7 +8,7 @@ def default_language(self):
     if language_tool.startNeutral():
         language = u""
     else:
-        language = language_tool.getDefaultLanguage()
+        language = language_tool.getPreferredLanguage()
     return language
 
 
