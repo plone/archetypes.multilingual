@@ -17,7 +17,7 @@ using the default_language
     >>> setRoles(portal, TEST_USER_ID, ['Manager'])
     >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample_not_neutral')
     >>> content = portal[content_id]
-    >>> ILanguage(content).get_language() == language_tool.getDefaultLanguage()
+    >>> ILanguage(content).get_language() == language_tool.getPreferredLanguage()
     True
 
 using neutral 
@@ -26,5 +26,5 @@ using neutral
     >>> language_tool.start_neutral = 1
     >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample_neutral')
     >>> content = portal[content_id]
-    >>> ILanguage(content).get_language() == language_tool.getDefaultLanguage()
+    >>> ILanguage(content).get_language() == language_tool.getPreferredLanguage()
     False
