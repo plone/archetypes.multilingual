@@ -2,8 +2,7 @@
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
-from archetypes.multilingual.interfaces import IArchetypesTranslatable
-from plone.multilingual.interfaces import ILanguage
+from plone.multilingual.interfaces import ILanguage, ITranslatable
 
 
 def default_language(self):
@@ -19,7 +18,7 @@ def default_language(self):
         language = u""
     elif IPloneSiteRoot.implementedBy(parent):
         language = language_tool.getPreferredLanguage()
-    else:
+    elif ITranslatable.providedBy(parent):
         language = ILanguage(parent).get_language()
     return language
 
