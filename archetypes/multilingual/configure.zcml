@@ -21,17 +21,10 @@
     />
 
     <monkey:patch
-        class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
-        original="defaultLanguage"
-        replacement=".monkey.default_language"
-    />
-
-    <monkey:patch
         class="Products.Archetypes.Widget.LanguageWidget"
         original="isVisible"
         replacement=".monkey.isVisible"
     />
-
 
   <cmf:registerDirectory
       name="skins"
