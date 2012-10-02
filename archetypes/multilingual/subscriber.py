@@ -73,27 +73,3 @@ class LanguageIndependentModifier(object):
 
 handler = LanguageIndependentModifier()
 
-
-def set_default_language(obj, event):
-    """
-        Subscriber for controlling the default language from
-        new created ATs. It must default to parent's language
-        if parent not implements IPloneSiteRoot. Take care also
-        that the content is still at the portal_factory.
-    """
-    portal = getSite()
-    parent = aq_parent(obj)
-    language_tool = getToolByName(portal, 'portal_languages')
-
-    if language_tool.startNeutral():
-        # We leave this untouched by now.
-        language = u""
-    elif IPloneSiteRoot.providedBy(parent):
-        language = language_tool.getPreferredLanguage()
-    elif ITranslatable.providedBy(parent):
-        language = ILanguage(parent).get_language()
-    else:
-        # The parent is still the portal_factory so leave it alone
-        language = u''
-
-    ILanguage(obj).set_language(language)

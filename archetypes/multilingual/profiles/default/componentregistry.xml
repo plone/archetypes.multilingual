@@ -18,11 +18,6 @@
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler="archetypes.multilingual.subscriber.handler"
       />
-    <subscriber
-    for="archetypes.multilingual.interfaces.IArchetypesTranslatable
-         zope.app.container.interfaces.IObjectAddedEvent"
-    handler="archetypes.multilingual.subscriber.set_default_language"
-    />
   </subscribers>
 </componentregistry>
 
