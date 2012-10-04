@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0b3 - 2012-10-04
+------------------
+
+- Added tests [sneridagh]
+- Solved bugs on subscribers [ramon]
+- Tuned AT babel view [ramon]
+- Monkey language field [ramon]
+
 1.0a1 - 2012-04-03
 ------------------
 
