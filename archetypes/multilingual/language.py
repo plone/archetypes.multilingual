@@ -21,4 +21,6 @@ class ATLanguage(object):
         return language
 
     def set_language(self, language):
-        self.context.setLanguage(language)
+        # Override the setLanguage method imposed by LP
+        # and access to the direct mutator of the object
+        self.context.getField('language').set(self.context, language)
