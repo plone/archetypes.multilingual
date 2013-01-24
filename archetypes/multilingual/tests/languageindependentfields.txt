@@ -63,6 +63,11 @@ Translate the object::
 
     >>> from plone.multilingual.interfaces import ITranslationManager
     >>> manager = ITranslationManager(portal[content_id])
+
+Manually call update on the manager, to ensure that the TG is up to date.
+Note: This should happen via event subscriber outside of tests.
+
+    >>> manager.update()
     >>> manager.add_translation('en')
     >>> obj_en = manager.get_translation('en')
     >>> import transaction; transaction.commit()
