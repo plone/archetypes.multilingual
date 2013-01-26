@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-26 09:52+0000\n"
+"POT-Creation-Date: 2013-01-26 10:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr ""
 
 #. Default: "Available translations for this content"
 #: ./skins/archetypesmultilingual/at_babel_edit.cpt:95
-msgid "heading_availabel_translations_this_content"
+msgid "heading_available_translations"
 msgstr ""
 
-#. Default: "TRANSLATION TO ${language}"
+#. Default: "Translation to ${language}"
 #: ./skins/archetypesmultilingual/at_babel_edit.cpt:120
-msgid "heading_translation_to"
+msgid "translation_to"
 msgstr ""
 
