@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0RC1 - 2013-01-26
+-------------------
+
+- Update .po files and .pot
+- Fix some failing tests
+- Bumped version to match the others [sneridagh]
+
 1.0b3 - 2012-10-04
 ------------------
 

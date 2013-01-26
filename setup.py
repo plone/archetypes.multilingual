@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b3'
+version = '1.0RC1'
 
 setup(name='archetypes.multilingual',
       version=version,
-      description="Multilingual support for archetypes",
+      description="Multilingual support for archetypes.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
