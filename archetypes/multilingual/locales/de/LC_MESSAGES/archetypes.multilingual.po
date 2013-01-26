@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-26 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#. Default: "The content should be there"
+#: ./skins/archetypesmultilingual/at_babel_edit.cpt:112
+msgid "description_content_here"
+msgstr ""
+
+#. Default: "Available translations for this content"
+#: ./skins/archetypesmultilingual/at_babel_edit.cpt:95
+msgid "heading_availabel_translations_this_content"
+msgstr ""
+
+#. Default: "TRANSLATION TO ${language}"
+#: ./skins/archetypesmultilingual/at_babel_edit.cpt:120
+msgid "heading_translation_to"
+msgstr ""
+

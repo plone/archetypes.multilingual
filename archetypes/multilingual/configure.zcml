@@ -7,6 +7,7 @@
     xmlns:cmf="http://namespaces.zope.org/cmf">
 
     <includeDependencies package="." />
+    <i18n:registerTranslations directory="locales" />
 
     <include file="profile.zcml" />
 
