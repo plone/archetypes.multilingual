@@ -9,9 +9,6 @@ from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
 from Products.CMFCore.utils import getToolByName
 
-from plone.dexterity.interfaces import IDexterityFTI
-
-# from plone.multilingualbehavior.interfaces import IDexterityTranslatable
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
 
 from plone.multilingual.interfaces import ILanguage
@@ -46,8 +43,6 @@ class LanguageIndependentModifier(object):
             for translation in translations:
                 manager.copy_fields(translation)
 
-            # fti = getUtility(IDexterityFTI, name=content.portal_type)
-            # schema = fti.lookupSchema()
             schema = content.Schema()
             descriptions = Attributes(schema)
             self.reindex_translations(translations, descriptions)
