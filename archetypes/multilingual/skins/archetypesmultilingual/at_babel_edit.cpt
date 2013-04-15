@@ -52,7 +52,7 @@
                condition="macro">
       <metal:block use-macro="macro" />
     </tal:block>
-    <script src="++resource++plone.app.multilingual.javascript/babel_helper.js">
+    <script src="" tal:attributes="src string:${portal_url}/++resource++plone.app.multilingual.javascript/babel_helper.js">
     </script>
     <tal:js condition="js"
             repeat="item js">
