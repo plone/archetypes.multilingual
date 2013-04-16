@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0 - 2013-04-16
+----------------
+
+- Correct js url on portal_factory babel view [ramon]
+- Show selector if num languages is large [pysailor]
+
 1.0rc1 - 2013-01-26
 -------------------
 
