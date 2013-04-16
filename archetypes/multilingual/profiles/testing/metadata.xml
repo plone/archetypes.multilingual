@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>01</version>
+   <dependencies>
+        <dependency>profile-archetypes.multilingual:default</dependency>
+        <dependency>profile-plone.multilingual:testing</dependency>
+   </dependencies>
+</metadata>
