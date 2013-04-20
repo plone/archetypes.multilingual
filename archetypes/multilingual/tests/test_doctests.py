@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
-# vim: set ts=4 sw=4:
-import unittest2 as unittest
-import doctest
+from archetypes.multilingual.testing import ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING
+from archetypes.multilingual.testing import ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING
+from archetypes.multilingual.testing import optionflags
 from plone.testing import layered
-from archetypes.multilingual.tests._testing import (
-    ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING,
-    ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING,
-    optionflags,
-)
+
+import doctest
+import unittest2 as unittest
+
 integration_tests = [
     'languageindependentfields.txt',
     'multilingual.txt',
     'monkey.txt',
-
 ]
+
 functional_tests = [
 ]
 
@@ -31,7 +30,7 @@ def test_suite():
                     optionflags=optionflags),
                  layer=ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING)
             for f in functional_tests]
-        )
+    )
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')

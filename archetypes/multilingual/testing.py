@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
-# vim: set ts=4 sw=4:
-import doctest
-import transaction
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
+from plone.testing import z2
+from zope.configuration import xmlconfig
 from OFS.Folder import Folder
 from Testing import ZopeTestCase as ztc
 
-from plone.app.testing import (
-    PLONE_FIXTURE,
-    PloneSandboxLayer,
-    applyProfile,
-    IntegrationTesting,
-    FunctionalTesting,
-)
-from zope.configuration import xmlconfig
-from plone.testing import z2
+import doctest
+import transaction
 
 
 class ArchetypesMultilingualLayer(PloneSandboxLayer):

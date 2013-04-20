@@ -1,18 +1,13 @@
-import unittest2 as unittest
-from archetypes.multilingual.tests._testing import ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING
-
-from Products.CMFCore.utils import getToolByName
-
-from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
-from plone.app.testing import setRoles
-from plone.app.testing import login, logout
-
-from plone.multilingual.interfaces import ITranslatable
+from archetypes.multilingual.testing import ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING
 from archetypes.multilingual.tests.utils import makeContent
 from archetypes.multilingual.tests.utils import makeTranslation
-
+from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
+from plone.app.testing import setRoles
+from plone.app.testing import login
 from zope.event import notify
 from Products.Archetypes.event import ObjectEditedEvent
+
+import unittest2 as unittest
 
 
 class TestLanguageIndependentFields(unittest.TestCase):

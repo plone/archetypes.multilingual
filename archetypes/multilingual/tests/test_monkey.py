@@ -1,19 +1,14 @@
-import unittest2 as unittest
-
-from Products.CMFCore.utils import getToolByName
-
-from plone.testing.z2 import Browser
+from archetypes.multilingual.testing import ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING
+from archetypes.multilingual.tests.utils import makeContent
 from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import setRoles
 from plone.app.testing import login
-
-from archetypes.multilingual.tests._testing import ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING
-
-from archetypes.multilingual.tests.utils import makeContent
-
 from plone.multilingual.interfaces import ILanguage
+from plone.testing.z2 import Browser
+from Products.CMFCore.utils import getToolByName
 
 import transaction
+import unittest2 as unittest
 
 
 class TestLanguageMonkeyPatch(unittest.TestCase):
