@@ -22,9 +22,11 @@
     />
 
     <monkey:patch
+        description="archetypes.multilingual makes Products.Archetypes.Widget.LanguageWidget invisble by monkeypatching!!!"
         class="Products.Archetypes.Widget.LanguageWidget"
         original="isVisible"
         replacement=".monkey.isVisible"
+            docstringWarning="true"
     />
 
   <cmf:registerDirectory
