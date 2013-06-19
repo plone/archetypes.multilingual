@@ -114,7 +114,7 @@
                               tal:attributes="data-url string:${lang/obj/absolute_url}/babel_view;
                                               class python:lang['isDefault'] and 'btn active' or 'btn';
                                               name string:button-${lang/info/name}"
-                              tal:content="lang/info/native">Language</button>
+                              tal:content="lang/info/native|lang/info/name">Language</button>
                     </tal:block>
                   </div>
               </div>
