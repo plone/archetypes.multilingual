@@ -3,3 +3,4 @@ Paste*
 *.egg-info
 build/*
 dist/*
+*.mo
