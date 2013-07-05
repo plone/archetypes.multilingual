@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.2dev (unreleased)
+-------------------
+
+- Add french translations
+
 1.0 - 2013-04-16
 ----------------
 
