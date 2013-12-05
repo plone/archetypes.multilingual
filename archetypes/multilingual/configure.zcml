@@ -17,7 +17,7 @@
 
     <adapter
         for=".interfaces.IArchetypesTranslatable"
-        provides="plone.multilingual.interfaces.ILanguage"
+        provides="plone.app.multilingual.interfaces.ILanguage"
         factory=".language.ATLanguage"
     />
 

@@ -3,7 +3,7 @@ from archetypes.multilingual.tests.utils import makeContent
 from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.app.testing import setRoles
 from plone.app.testing import login
-from plone.multilingual.interfaces import ILanguage
+from plone.app.multilingual.interfaces import ILanguage
 from plone.testing.z2 import Browser
 from Products.CMFCore.utils import getToolByName
 
