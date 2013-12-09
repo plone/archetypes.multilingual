@@ -6,12 +6,4 @@
   <include file="configure.zcml" />
   <include package="plone.app.multilingual" file="testing.zcml" />
 
-  <genericsetup:registerProfile
-      name="testing"
-      title="archetypes.multilingual tests"
-      directory="profiles/testing"
-      description="Steps to ease tests of archetypes.multilingual"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
 </configure>

@@ -26,7 +26,6 @@ setup(name='archetypes.multilingual',
       install_requires=[
           'setuptools',
           'Products.ATContentTypes',
-          'plone.multilingual',
           'plone.app.multilingual',
           'collective.monkeypatcher',
           'Products.PloneLanguageTool'
