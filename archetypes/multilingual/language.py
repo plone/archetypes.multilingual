@@ -5,6 +5,8 @@ from plone.app.multilingual.interfaces import (
     LANGUAGE_INDEPENDENT,
 )
 from zope import interface
+from plone.app.layout.navigation.root import getNavigationRootObject
+from zope.component.hooks import getSite
 
 
 class ATLanguage(object):
@@ -16,6 +18,10 @@ class ATLanguage(object):
 
     def get_language(self):
         language = self.context.Language()
+        if self.context.portal_factory.isTemporary(self.context):
+            navroot = getNavigationRootObject(self.context, getSite())
+            if navroot != self.context:
+                language = ILanguage(navroot).get_language()
         if not language:
             language = LANGUAGE_INDEPENDENT
         return language

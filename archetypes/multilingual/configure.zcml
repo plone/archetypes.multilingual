@@ -10,6 +10,7 @@
     <i18n:registerTranslations directory="locales" />
 
     <include file="profile.zcml" />
+    <include package=".browser"/>
 
     <class class="Products.Archetypes.atapi.BaseObject">
         <implements interface=".interfaces.IArchetypesTranslatable" />
