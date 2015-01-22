@@ -32,7 +32,11 @@ setup(name='archetypes.multilingual',
           # -*- Extra requirements: -*-
       ],
       extras_require={
-          'test': ['plone.app.testing', 'archetypes.testcase']
+          'test': [
+              'plone.app.testing',
+              'plone.app.multilingual[test]',
+              'archetypes.testcase'
+          ]
       },
       entry_points="""
       [z3c.autoinclude.plugin]
