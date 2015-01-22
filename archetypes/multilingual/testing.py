@@ -25,7 +25,7 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         import archetypes.multilingual
         import archetypes.testcase
 
-        xmlconfig.file('configure.zcml', archetypes.multilingual,
+        xmlconfig.file('testing.zcml', archetypes.multilingual,
                        context=configurationContext)
         xmlconfig.file('configure.zcml', archetypes.testcase,
                        context=configurationContext)
