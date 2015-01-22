@@ -6,7 +6,12 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:cmf="http://namespaces.zope.org/cmf">
 
-    <includeDependencies package="." />
+    <include package="Products.ATContentTypes" />
+    <include package="plone.app.multilingual" />
+    <include package="plone.app.dexterity" />
+    <include package="collective.monkeypatcher" />
+    <include package="Products.PloneLanguageTool" />
+
     <i18n:registerTranslations directory="locales" />
 
     <include file="profile.zcml" />
@@ -28,10 +33,10 @@
         replacement=".monkey.isVisible"
     />
 
-  <cmf:registerDirectory
-      name="skins"
-      directory="skins"
-      recursive="True"
-      />
+    <cmf:registerDirectory
+        name="skins"
+        directory="skins"
+        recursive="True"
+        />
 
 </configure>
