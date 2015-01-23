@@ -1,9 +1,7 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
-
 from Products.Five import BrowserView
 
-
-# Archetypes form
 
 class MultilingualATAddForm(BrowserView):
 
@@ -31,9 +29,11 @@ class MultilingualATAddForm(BrowserView):
         if type_name in self.context.portal_factory.getFactoryTypes():
             new_url = 'portal_factory/' + type_name + '/' + id + '/babel_edit'
             return self.request.response.redirect(new_url)
-            #state.set(status='factory', next_action='redirect_to:string:%s' % new_url)
-            # If there's an issue with object creation, let the factory handle it
-            #return state
+            # state.set(status='factory',
+            #           next_action='redirect_to:string:%s' % new_url)
+            # If there's an issue with object creation, let the factory
+            # handle it
+            # return state
         else:
             new_id = self.context.invokeFactory(id=id, type_name=type_name)
             if new_id is None or new_id == '':
