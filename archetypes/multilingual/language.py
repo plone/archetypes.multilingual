@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-# vim: set ts=4 sw=4:
-from plone.app.multilingual.interfaces import (
-    ILanguage,
-    LANGUAGE_INDEPENDENT,
-)
-from zope import interface
-from plone.app.layout.navigation.root import getNavigationRootObject
-from zope.component.hooks import getSite
 from Products.CMFCore.utils import getToolByName
+from plone.app.layout.navigation.root import getNavigationRootObject
+from plone.app.multilingual.interfaces import ILanguage
+from plone.app.multilingual.interfaces import LANGUAGE_INDEPENDENT
+from zope import interface
+from zope.component.hooks import getSite
 
 
 class ATLanguage(object):
