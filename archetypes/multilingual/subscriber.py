@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager

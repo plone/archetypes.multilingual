@@ -39,7 +39,6 @@ class MultilingualATAddForm(BrowserView):
             if new_id is None or new_id == '':
                 new_id = id
             o = getattr(self.context, new_id, None)
-            tname = o.getTypeInfo().Title()
 
         if o is None:
             raise Exception

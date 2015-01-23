@@ -1,4 +1,4 @@
-# -*- extra stuff goes here -*-
+# -*- coding: utf-8 -*-
 
 
 def initialize(context):

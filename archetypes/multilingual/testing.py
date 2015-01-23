@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
+from OFS.Folder import Folder
+from Testing import ZopeTestCase as ztc
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
 from plone.testing import z2
 from zope.configuration import xmlconfig
-from OFS.Folder import Folder
-from Testing import ZopeTestCase as ztc
 
 import doctest
 import transaction

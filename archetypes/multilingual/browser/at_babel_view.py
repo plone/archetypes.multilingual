@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -13,5 +14,6 @@ class ATBabelEdit(BrowserView):
         self.request = request
 
     def __call__(self):
-        self.request.RESPONSE.redirect(self.context.absolute_url() +
-                                       '/at_babel_edit')
+        self.request.RESPONSE.redirect(
+            '{0:s}/at_babel_edit'.self.context.absolute_url()
+        )

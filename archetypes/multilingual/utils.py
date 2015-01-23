@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from zope import interface
-
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
+from zope import interface
 
 
 class LanguageIndependentFieldsManager(object):
