@@ -27,14 +27,15 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
         self.browser = Browser(self.layer['app'])
         self.browser.handleErrors = False
         self.portal_url = self.portal.absolute_url()
-        language_tool = getToolByName(self.portal, 'portal_languages')
-        language_tool.addSupportedLanguage('ca')
-        language_tool.addSupportedLanguage('es')
+        self.ltool = getToolByName(self.portal, 'portal_languages')
+        self.ltool.addSupportedLanguage('ca')
+        self.ltool.addSupportedLanguage('es')
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        login(self.portal, TEST_USER_NAME)
 
     def test_monkey_non_folderish(self):
         self.browser.addHeader('Authorization', auth_header)
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        login(self.portal, TEST_USER_NAME)
+
         folder = makeContent(self.portal, 'Folder', id='folder')
         ILanguage(folder).set_language('ca')
         transaction.commit()
@@ -49,8 +50,7 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
 
     def test_monkey_folderish(self):
         self.browser.addHeader('Authorization', auth_header)
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        login(self.portal, TEST_USER_NAME)
+
         folder = makeContent(self.portal, 'Folder', id='folder')
         ILanguage(folder).set_language('ca')
         transaction.commit()
