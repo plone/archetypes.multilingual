@@ -12,7 +12,7 @@ testing the monkey patch
 using the default_language 
 ::
 
-    >>> from plone.multilingual.interfaces import ILanguage
+    >>> from plone.app.multilingual.interfaces import ILanguage
     >>> from plone.app.testing import TEST_USER_ID, setRoles
     >>> setRoles(portal, TEST_USER_ID, ['Manager'])
     >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample_not_neutral')

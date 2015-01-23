@@ -1,4 +1,4 @@
-from plone.multilingual.interfaces import ITranslationManager
+from plone.app.multilingual.interfaces import ITranslationManager
 
 
 def makeContent(context, portal_type, id='doc', **kw):

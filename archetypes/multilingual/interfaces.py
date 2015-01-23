@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from plone.multilingual.interfaces import ITranslatable
+from plone.app.multilingual.interfaces import ITranslatable
 
 
 class IArchetypesTranslatable(ITranslatable):

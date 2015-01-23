@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3dev'
+version = '2.0dev'
 
 setup(name='archetypes.multilingual',
       version=version,
@@ -26,13 +26,17 @@ setup(name='archetypes.multilingual',
       install_requires=[
           'setuptools',
           'Products.ATContentTypes',
-          'plone.multilingual',
+          'plone.app.multilingual',
           'collective.monkeypatcher',
           'Products.PloneLanguageTool'
           # -*- Extra requirements: -*-
       ],
       extras_require={
-          'test': ['plone.app.testing', 'archetypes.testcase']
+          'test': [
+              'plone.app.testing',
+              'plone.app.multilingual[test]',
+              'archetypes.testcase'
+          ]
       },
       entry_points="""
       [z3c.autoinclude.plugin]

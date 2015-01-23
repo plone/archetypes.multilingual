@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from zope import interface
 
-from plone.multilingual.interfaces import ILanguageIndependentFieldsManager
-from plone.multilingual.interfaces import ITranslationCloner
+from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
+from plone.app.multilingual.interfaces import ITranslationCloner
 
 
 class Cloner(object):

@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This egg adds the glue between plone.app.multilingual and plone.multilingual for Archetype-based Content.
+This egg adds plone.app.multilingual support to Archetypes.
 
 For more information, please visit:
 

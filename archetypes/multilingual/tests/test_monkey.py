@@ -1,14 +1,20 @@
-from archetypes.multilingual.testing import ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING
-from archetypes.multilingual.tests.utils import makeContent
-from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, TEST_USER_PASSWORD
-from plone.app.testing import setRoles
-from plone.app.testing import login
-from plone.multilingual.interfaces import ILanguage
-from plone.testing.z2 import Browser
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from archetypes.multilingual.testing import \
+    ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING
+from archetypes.multilingual.tests.utils import makeContent
+from plone.app.multilingual.interfaces import ILanguage
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from plone.testing.z2 import Browser
 
 import transaction
 import unittest2 as unittest
+
+auth_header = 'Basic {0:s}:{1:s}'.format(TEST_USER_NAME, TEST_USER_PASSWORD)
 
 
 class TestLanguageMonkeyPatch(unittest.TestCase):
@@ -26,14 +32,15 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
         language_tool.addSupportedLanguage('es')
 
     def test_monkey_non_folderish(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD))
+        self.browser.addHeader('Authorization', auth_header)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         folder = makeContent(self.portal, 'Folder', id='folder')
         ILanguage(folder).set_language('ca')
         transaction.commit()
 
-        self.browser.open(folder.absolute_url() + '/createObject?type_name=Document')
+        self.browser.open('{0:s}/createObject?type_name=Document'.format(
+            folder.absolute_url()))
         self.browser.getControl(name="title").value = "doc"
         self.browser.getControl(name="text").value = "BLABLA"
         self.browser.getControl(name="form.button.save").click()
@@ -41,14 +48,15 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
         self.assertEqual(ILanguage(folder['doc']).get_language(), 'ca')
 
     def test_monkey_folderish(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD))
+        self.browser.addHeader('Authorization', auth_header)
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         folder = makeContent(self.portal, 'Folder', id='folder')
         ILanguage(folder).set_language('ca')
         transaction.commit()
 
-        self.browser.open(folder.absolute_url() + '/createObject?type_name=Folder')
+        self.browser.open('{0:s}/createObject?type_name=Document'.format(
+            folder.absolute_url()))
         self.browser.getControl(name="title").value = "subfolder"
         self.browser.getControl(name="form.button.save").click()
 

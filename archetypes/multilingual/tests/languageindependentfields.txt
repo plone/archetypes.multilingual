@@ -30,11 +30,11 @@ create an Archetypes object::
     >>> portal[content_id].setTitle("Sample Content")
 
 We should be able to access the object, it should provide the marker
-interface ``plone.multilingual.interfaces.ITranslatable`` and 
-``plone.multilingual.interfaces.IArchetypesTranslatable``::
+interface ``plone.app.multilingual.interfaces.ITranslatable`` and 
+``archetypes.multilingual.interfaces.IArchetypesTranslatable``::
 
     >>> obj = portal.get(content_id)
-    >>> from plone.multilingual.interfaces import ITranslatable
+    >>> from plone.app.multilingual.interfaces import ITranslatable
     >>> ITranslatable.providedBy(obj)
     True
 
@@ -42,9 +42,9 @@ interface ``plone.multilingual.interfaces.ITranslatable`` and
     >>> IArchetypesTranslatable.providedBy(obj)
     True
 
-We should also be able to access the adapter for ``plone.multilingual.interfaces.ILanguage``::
+We should also be able to access the adapter for ``plone.app.multilingual.interfaces.ILanguage``::
 
-    >>> from plone.multilingual.interfaces import ILanguage
+    >>> from plone.app.multilingual.interfaces import ILanguage
     >>> from zope.component import queryAdapter
     >>> adapter = queryAdapter(obj, ILanguage)
     >>> adapter == None
@@ -61,7 +61,7 @@ get the language::
 
 Translate the object::
 
-    >>> from plone.multilingual.interfaces import ITranslationManager
+    >>> from plone.app.multilingual.interfaces import ITranslationManager
     >>> manager = ITranslationManager(portal[content_id])
 
 Manually call update on the manager, to ensure that the TG is up to date.

@@ -43,7 +43,7 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         # install into the Plone site
-        applyProfile(portal, 'archetypes.multilingual:testing')
+        applyProfile(portal, 'archetypes.multilingual:default')
         applyProfile(portal, 'archetypes.testcase:default')
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
