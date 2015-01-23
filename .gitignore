@@ -1,6 +1,10 @@
-*.pyc
-Paste*
 *.egg-info
-build/*
-dist/*
 *.mo
+*.py[c|o]
+/.Python
+/bin
+/build/*
+/dist/*
+/include
+/lib
+Paste*
