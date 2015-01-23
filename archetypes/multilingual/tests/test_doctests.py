@@ -10,7 +10,6 @@ import unittest2 as unittest
 integration_tests = [
     'languageindependentfields.txt',
     'multilingual.txt',
-    'monkey.txt',
 ]
 
 functional_tests = [
