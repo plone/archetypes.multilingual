@@ -15,5 +15,5 @@ class ATBabelEdit(BrowserView):
 
     def __call__(self):
         self.request.RESPONSE.redirect(
-            '{0:s}/at_babel_edit'.self.context.absolute_url()
+            '{0}/at_babel_edit'.format(self.context.absolute_url())
         )
