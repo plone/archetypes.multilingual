@@ -9,11 +9,19 @@ Changelog
 
 - Add french translations
 
+- __name__ method is added for preventing bug when you try to go in Components
+  tab into ZMI (/manage_components) or when you try to make a snapshot.
+  [bsuttor]
+
+
 1.0 - 2013-04-16
 ----------------
 
-- Correct js url on portal_factory babel view [ramon]
-- Show selector if num languages is large [pysailor]
+- Correct js url on portal_factory babel view 
+  [ramon]
+
+- Show selector if num languages is large 
+  [pysailor]
 
 1.0rc1 - 2013-01-26
 -------------------
