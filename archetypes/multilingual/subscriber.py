@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Acquisition import aq_parent
 from zope.component.hooks import getSite
 from zope.component import getUtility
@@ -65,6 +66,9 @@ class LanguageIndependentModifier(object):
             if language != content_lang:
                 translations_list_to_process.append(translations[language])
         return translations_list_to_process
+
+    def __name__(self):
+        return 'handler'
 
 handler = LanguageIndependentModifier()
 
