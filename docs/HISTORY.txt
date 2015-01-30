@@ -7,12 +7,11 @@ Changelog
 1.2 - 2013-09-24
 ----------------
 
-- Add french translations
-
 - __name__ method is added for preventing bug when you try to go in Components
   tab into ZMI (/manage_components) or when you try to make a snapshot.
   [bsuttor]
-
+  
+- Add french translations
 
 1.0 - 2013-04-16
 ----------------
