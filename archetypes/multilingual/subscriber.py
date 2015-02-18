@@ -4,6 +4,7 @@ from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
 from plone.app.multilingual.interfaces import ITranslationManager
 from plone.app.multilingual.subscriber import CreationEvent
+from plone.dexterity.interfaces import IDexterityContent
 from zope.component import queryAdapter
 from zope.event import notify
 from zope.lifecycleevent import Attributes
@@ -67,6 +68,10 @@ class ArchetypesCreationEvent(CreationEvent):
     def has_pam_old_lang_in_form(self):
         # XXX Need to be improved
         return False
+
+    @property
+    def is_translatable(self):
+        return not IDexterityContent.providedBy(self.obj)
 
 
 archetypes_creation_handler = ArchetypesCreationEvent()
