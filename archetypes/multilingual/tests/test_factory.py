@@ -68,3 +68,6 @@ class TestFactory(unittest.TestCase):
         self.assertIn('Mijn document', self.browser.contents)
         translations = ITranslationManager(doc_nl).get_translations()
         self.assertTrue("fr" in translations.keys(), 'fr language should be in translations')
+
+        translations = ITranslationManager(doc_fr).get_translations()
+        self.assertTrue("nl" in translations.keys(), 'nl language should be in translations')
