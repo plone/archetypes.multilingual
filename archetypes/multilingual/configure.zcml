@@ -41,6 +41,11 @@
              zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".subscriber.handler" />
 
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
+
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
         provides="plone.app.multilingual.interfaces.ITranslationCloner"

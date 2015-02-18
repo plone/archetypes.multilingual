@@ -3,6 +3,7 @@ from archetypes.multilingual.interfaces import IArchetypesTranslatable
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
 from plone.app.multilingual.interfaces import ITranslationManager
+from plone.app.multilingual.subscriber import CreationEvent
 from zope.component import queryAdapter
 from zope.event import notify
 from zope.lifecycleevent import Attributes
@@ -58,3 +59,14 @@ class LanguageIndependentModifier(object):
         return translations_list_to_process
 
 handler = LanguageIndependentModifier()
+
+
+class ArchetypesCreationEvent(CreationEvent):
+
+    @property
+    def has_pam_old_lang_in_form(self):
+        # XXX Need to be improved
+        return False
+
+
+archetypes_creation_handler = ArchetypesCreationEvent()
