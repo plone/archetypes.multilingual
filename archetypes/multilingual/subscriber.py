@@ -67,7 +67,8 @@ class ArchetypesCreationEvent(CreationEvent):
 
     @property
     def has_pam_old_lang_in_form(self):
-        # XXX Need to be improved
+        # Archetypes content types does not have the pam_old_lang field
+        # XXX Need to be improved to have a different behavior for add and edit
         return False
 
     @property
