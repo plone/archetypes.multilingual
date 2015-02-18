@@ -10,6 +10,7 @@ from zope.event import notify
 from zope.lifecycleevent import Attributes
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from zope.lifecycleevent.interfaces import IObjectRemovedEvent
 
 
 class LanguageIndependentModifier(object):
@@ -71,7 +72,8 @@ class ArchetypesCreationEvent(CreationEvent):
 
     @property
     def is_translatable(self):
-        return not IDexterityContent.providedBy(self.obj)
+        return (not IObjectRemovedEvent.providedBy(self.event)
+                and not IDexterityContent.providedBy(self.obj))
 
 
 archetypes_creation_handler = ArchetypesCreationEvent()
