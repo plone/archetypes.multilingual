@@ -7,7 +7,6 @@
     xmlns:cmf="http://namespaces.zope.org/cmf">
 
     <include package="Products.ATContentTypes" />
-    <include package="Products.PloneLanguageTool" />
     <include package="plone.app.multilingual" />
     <include package="plone.app.dexterity" />
     <include package="collective.monkeypatcher" />

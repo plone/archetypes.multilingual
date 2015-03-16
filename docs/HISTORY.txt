@@ -4,6 +4,10 @@ Changelog
 1.3dev - Unreleased
 -------------------
 
+- Remove PloneLanguageTool dependency.
+  [timo]
+
+
 1.2 - 2013-09-24
 ----------------
 
