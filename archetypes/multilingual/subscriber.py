@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
-from plone.app.multilingual.interfaces import ILanguage
+from Products.CMFPlone.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
 from plone.app.multilingual.interfaces import ITranslationManager
 from zope.component import queryAdapter

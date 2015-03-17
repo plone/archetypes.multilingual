@@ -22,7 +22,7 @@
 
     <adapter
         for=".interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ILanguage"
+        provides="Products.CMFPlone.interfaces.ILanguage"
         factory=".language.ATLanguage" />
 
     <monkey:patch

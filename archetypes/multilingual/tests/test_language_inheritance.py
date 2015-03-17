@@ -3,7 +3,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
 from archetypes.multilingual.testing import \
     ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING
-from plone.app.multilingual.interfaces import ILanguage
+from Prodcuts.CMFPlone.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ITranslatable
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME

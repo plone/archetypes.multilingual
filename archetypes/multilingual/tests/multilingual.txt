@@ -19,7 +19,7 @@ ITranslatable should be provided::
 
 language-adapter::
 
-    >>> from plone.app.multilingual.interfaces import ILanguage
+    >>> from Products.CMFPlone.interfaces import ILanguage
     >>> from zope import component
     >>> adapter = component.queryAdapter(content, ILanguage)
     >>> adapter is not None

@@ -2,7 +2,7 @@
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.common import ViewletBase
-from plone.app.multilingual.interfaces import ILanguage
+from Products.CMFPlone.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ITranslatable
 
 
