@@ -40,7 +40,6 @@ setup(
         'test': [
             'plone.app.testing',
             'plone.app.multilingual[test]',
-            'archetypes.testcase'
         ]
     },
     entry_points="""

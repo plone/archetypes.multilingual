@@ -21,16 +21,16 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
             self[key] = value
 
     def setUpZope(self, app, configurationContext):
-        # load ZCML
+        import Products.ATContentTypes
+        self.loadZCML(package=Products.ATContentTypes)
+
+        z2.installProduct(app, 'Products.Archetypes')
+        z2.installProduct(app, 'Products.ATContentTypes')
+
         import archetypes.multilingual
-        import archetypes.testcase
 
         xmlconfig.file('testing.zcml', archetypes.multilingual,
                        context=configurationContext)
-        xmlconfig.file('configure.zcml', archetypes.testcase,
-                       context=configurationContext)
-
-        z2.installProduct(app, 'archetypes.testcase')
 
         # Support sessionstorage in tests
         app.REQUEST['SESSION'] = self.Session()
@@ -42,9 +42,12 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         ztc.utils.setupCoreSessions(app)
 
     def setUpPloneSite(self, portal):
-        # install into the Plone site
+        # install Products.ATContentTypes manually if profile is available
+        # (this is only needed for Plone >= 5)
+        profiles = [x['id'] for x in portal.portal_setup.listProfileInfo()]
+        if 'Products.ATContentTypes:default' in profiles:
+            applyProfile(portal, 'Products.ATContentTypes:default')
         applyProfile(portal, 'archetypes.multilingual:default')
-        applyProfile(portal, 'archetypes.testcase:default')
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
 

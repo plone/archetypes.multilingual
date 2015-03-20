@@ -4,6 +4,9 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Remove archetypes.testcase test dependency.
+  [timo]
+
 - The ``ILanguage`` implementation for Archetypes was broken. This close #13.
   [keul, frisi]
 
