@@ -4,6 +4,9 @@ Changelog
 1.3dev - Unreleased
 -------------------
 
+- Remove archetypes.testcase test dependency.
+  [timo]
+
 - Remove PloneLanguageTool dependency.
   [timo]
 
