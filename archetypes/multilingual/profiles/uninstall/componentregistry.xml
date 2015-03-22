@@ -5,53 +5,70 @@
       for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
       provides="plone.app.multilingual.interfaces.ITranslationCloner"
       factory="archetypes.multilingual.cloner.Cloner"
+      remove="True"
     />
     <adapter
       for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
       provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
       factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"
+      remove="True"
     />
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
         provides="plone.app.multilingual.interfaces.ITranslationCloner"
-        factory=".cloner.Cloner"/>
+        factory=".cloner.Cloner"
+        remove="True"
+    />
 
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
         provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
-        factory=".utils.LanguageIndependentFieldsManager"/>
+        factory=".utils.LanguageIndependentFieldsManager"
+        remove="True"
+    />
   </adapters>
   <subscribers>
     <subscriber
       for="archetypes.multilingual.interfaces.IArchetypesTranslatable
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler="archetypes.multilingual.subscriber.handler"
+      remove="True"
       />
     <!-- Language independent folder content indexers -->
     <subscriber
         for="Products.ATContentTypes.interfaces.IATContentType
              zope.lifecycleevent.interfaces.IObjectAddedEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
+        handler="plone.app.multilingual.subscriber.reindex_language_independent"
+        remove="True"
+    />
 
     <subscriber
         for="Products.ATContentTypes.interfaces.IATContentType
              zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
+        handler="plone.app.multilingual.subscriber.reindex_language_independent"
+        remove="True"
+    />
 
      <subscriber
         for="Products.ATContentTypes.interfaces.IATContentType
              Products.CMFCore.interfaces.IActionSucceededEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
+        handler="plone.app.multilingual.subscriber.reindex_language_independent"
+        remove="True"
+    />
 
     <subscriber
         for="Products.ATContentTypes.interfaces.IATContentType
              OFS.interfaces.IObjectWillBeMovedEvent"
-         handler="plone.app.multilingual.subscriber.unindex_language_independent"/>
+        handler="plone.app.multilingual.subscriber.unindex_language_independent"
+        remove="True"
+    />
 
     <subscriber
         for="Products.ATContentTypes.interfaces.IATContentType
              OFS.interfaces.IObjectWillBeRemovedEvent"
-        handler="plone.app.multilingual.subscriber.unindex_language_independent"/>
+        handler="plone.app.multilingual.subscriber.unindex_language_independent"
+        remove="True"
+    />
   </subscribers>
 </componentregistry>
 

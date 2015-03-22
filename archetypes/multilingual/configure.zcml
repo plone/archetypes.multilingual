@@ -21,7 +21,7 @@
     </class>
 
     <adapter
-        for=".interfaces.IArchetypesTranslatable"
+        for="Products.ATContentTypes.interfaces.IATContentType"
         provides="Products.CMFPlone.interfaces.ILanguage"
         factory=".language.ATLanguage" />
 
@@ -34,46 +34,5 @@
         name="skins"
         directory="skins"
         recursive="True" />
-
-    <subscriber
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
-             zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler=".subscriber.handler" />
-
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ITranslationCloner"
-        factory=".cloner.Cloner"/>
-
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
-        factory=".utils.LanguageIndependentFieldsManager"/>
-
-    <!-- Language independent folder content indexers -->
-    <subscriber
-        for="Products.ATContentTypes.interfaces.IATContentType
-             zope.lifecycleevent.interfaces.IObjectAddedEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
-
-    <subscriber
-        for="Products.ATContentTypes.interfaces.IATContentType
-             zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
-
-     <subscriber
-        for="Products.ATContentTypes.interfaces.IATContentType
-             Products.CMFCore.interfaces.IActionSucceededEvent"
-        handler="plone.app.multilingual.subscriber.reindex_language_independent"/>
-
-    <subscriber
-        for="Products.ATContentTypes.interfaces.IATContentType
-             OFS.interfaces.IObjectWillBeMovedEvent"
-         handler="plone.app.multilingual.subscriber.unindex_language_independent"/>
-
-    <subscriber
-        for="Products.ATContentTypes.interfaces.IATContentType
-             OFS.interfaces.IObjectWillBeRemovedEvent"
-        handler="plone.app.multilingual.subscriber.unindex_language_independent"/>
 
 </configure>
