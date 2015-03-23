@@ -4,6 +4,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:monkey="http://namespaces.plone.org/monkey"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:cmf="http://namespaces.zope.org/cmf">
 
     <include package="Products.ATContentTypes" />
@@ -40,6 +41,34 @@
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable
              zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".subscriber.handler" />
+
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
+
+    <configure zcml:condition="not-installed zope.container">
+        <subscriber
+            for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+                 zope.app.container.interfaces.IObjectAddedEvent"
+            handler=".subscriber.archetypes_creation_handler"/>
+    </configure>
+
+    <configure zcml:condition="installed zope.container">
+      <subscriber
+            for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+                 zope.container.interfaces.IObjectAddedEvent"
+            handler=".subscriber.archetypes_creation_handler"/>
+    </configure>
+
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             zope.lifecycleevent.interfaces.IObjectCopiedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
 
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"

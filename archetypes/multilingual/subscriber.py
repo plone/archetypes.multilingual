@@ -3,11 +3,14 @@ from archetypes.multilingual.interfaces import IArchetypesTranslatable
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
 from plone.app.multilingual.interfaces import ITranslationManager
+from plone.app.multilingual.subscriber import CreationEvent
+from plone.dexterity.interfaces import IDexterityContent
 from zope.component import queryAdapter
 from zope.event import notify
 from zope.lifecycleevent import Attributes
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from zope.lifecycleevent.interfaces import IObjectRemovedEvent
 
 
 class LanguageIndependentModifier(object):
@@ -58,3 +61,20 @@ class LanguageIndependentModifier(object):
         return translations_list_to_process
 
 handler = LanguageIndependentModifier()
+
+
+class ArchetypesCreationEvent(CreationEvent):
+
+    @property
+    def has_pam_old_lang_in_form(self):
+        # Archetypes content types does not have the pam_old_lang field
+        # XXX Need to be improved to have a different behavior for add and edit
+        return False
+
+    @property
+    def is_translatable(self):
+        return (not IObjectRemovedEvent.providedBy(self.event)
+                and not IDexterityContent.providedBy(self.obj))
+
+
+archetypes_creation_handler = ArchetypesCreationEvent()
