@@ -14,12 +14,12 @@
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
         provides="plone.app.multilingual.interfaces.ITranslationCloner"
-        factory=".cloner.Cloner"/>
+        factory="archetypes.multilingual.cloner.Cloner"/>
 
     <adapter
         for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
         provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
-        factory=".utils.LanguageIndependentFieldsManager"/>
+        factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"/>
   </adapters>
   <subscribers>
     <subscriber
