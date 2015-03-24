@@ -9,6 +9,8 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import setRoles
+from plone.app.multilingual.interfaces import IPloneAppMultilingualInstalled
+from zope.interface import alsoProvides
 
 import unittest
 
@@ -27,7 +29,7 @@ class TestArchetypesLanguageInheritance(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
-
+        alsoProvides(self.layer['request'], IPloneAppMultilingualInstalled)
         self.ltool = getToolByName(self.portal, 'portal_languages')
         self.ltool.addSupportedLanguage('de')
         self.ltool.addSupportedLanguage('en')
