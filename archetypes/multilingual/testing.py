@@ -3,8 +3,12 @@ from OFS.Folder import Folder
 from Testing import ZopeTestCase as ztc
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
-from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from plone.app.multilingual.testing import PLONE_APP_MULTILINGUAL_FIXTURE
+from plone.app.contenttypes.testing import (
+    PLONE_APP_CONTENTTYPES_FIXTURE,
+    PLONE_APP_CONTENTTYPES_MIGRATION_FIXTURE
+)
 from plone.app.testing import applyProfile
 from plone.testing import z2
 from zope.configuration import xmlconfig
@@ -14,37 +18,35 @@ import transaction
 
 
 class ArchetypesMultilingualLayer(PloneSandboxLayer):
-    defaultBases = (PLONE_FIXTURE,)
 
-    class Session(dict):
-        def set(self, key, value):
-            self[key] = value
+    defaultBases = (
+        PLONE_APP_CONTENTTYPES_MIGRATION_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
-        # load ZCML
+        # import Products.ATContentTypes
+        # self.loadZCML(package=Products.ATContentTypes)
+
+        # z2.installProduct(app, 'Products.Archetypes')
+        # z2.installProduct(app, 'Products.ATContentTypes')
+
         import archetypes.multilingual
-        import archetypes.testcase
 
         xmlconfig.file('testing.zcml', archetypes.multilingual,
                        context=configurationContext)
-        xmlconfig.file('configure.zcml', archetypes.testcase,
-                       context=configurationContext)
 
-        z2.installProduct(app, 'archetypes.testcase')
+        # if not hasattr(app, 'temp_folder'):
+        #     tf = Folder('temp_folder')
+        #     app._setObject('temp_folder', tf)
+        #     transaction.commit()
 
-        # Support sessionstorage in tests
-        app.REQUEST['SESSION'] = self.Session()
-        if not hasattr(app, 'temp_folder'):
-            tf = Folder('temp_folder')
-            app._setObject('temp_folder', tf)
-            transaction.commit()
-
-        ztc.utils.setupCoreSessions(app)
+        # ztc.utils.setupCoreSessions(app)
 
     def setUpPloneSite(self, portal):
-        # install into the Plone site
+        # install Products.ATContentTypes manually if profile is available
+        # (this is only needed for Plone >= 5)
+        # profiles = [x['id'] for x in portal.portal_setup.listProfileInfo()]
+        applyProfile(portal, 'plone.app.multilingual:default')
         applyProfile(portal, 'archetypes.multilingual:default')
-        applyProfile(portal, 'archetypes.testcase:default')
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
 

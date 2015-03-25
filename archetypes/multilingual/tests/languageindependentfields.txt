@@ -44,7 +44,7 @@ interface ``plone.app.multilingual.interfaces.ITranslatable`` and
 
 We should also be able to access the adapter for ``plone.app.multilingual.interfaces.ILanguage``::
 
-    >>> from plone.app.multilingual.interfaces import ILanguage
+    >>> from Products.CMFPlone.interfaces import ILanguage
     >>> from zope.component import queryAdapter
     >>> adapter = queryAdapter(obj, ILanguage)
     >>> adapter == None

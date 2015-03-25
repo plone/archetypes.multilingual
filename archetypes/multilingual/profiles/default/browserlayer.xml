@@ -1,0 +1,5 @@
+<layers>
+  <layer
+      name="archetypes.multilingual"
+      interface="archetypes.multilingual.interfaces.IArchetypesMultilingualInstalled"/>
+</layers>

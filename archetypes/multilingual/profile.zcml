@@ -11,4 +11,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Remove Archetypes Multilingual Support"
+      directory="profiles/uninstall"
+      description="Removes the components of Archetypes Multilingual."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 </configure>

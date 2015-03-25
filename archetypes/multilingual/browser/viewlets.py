@@ -2,7 +2,7 @@
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.common import ViewletBase
-from plone.app.multilingual.interfaces import ILanguage
+from Products.CMFPlone.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ITranslatable
 
 
@@ -25,16 +25,17 @@ class addFormATIsATranslationViewlet(ViewletBase):
     def update(self):
         """ It's only for AT on factory so we check """
         if self.context.portal_factory.isTemporary(self.context):
-            sdm = self.context.session_data_manager
-            session = sdm.getSessionData(create=True)
             if ITranslatable.providedBy(self.context):
                 self.lang = ILanguage(self.context).get_language()
             else:
                 self.lang = 'NaN'
-            if 'tg' in session.keys():
-                tg = session['tg']
-                self.available = True
-                ptool = getToolByName(self.context, 'portal_catalog')
-                query = {'TranslationGroup': tg, 'Language': 'all'}
-                results = ptool.searchResults(query)
-                self.origin = results
+            # No support for sessions on PAM
+            # Its needed to be done an implementation to pass the tg to
+            # to the factory
+            # if 'tg' in session.keys():
+            #     tg = session['tg']
+            #     self.available = True
+            #     ptool = getToolByName(self.context, 'portal_catalog')
+            #     query = {'TranslationGroup': tg, 'Language': 'all'}
+            #     results = ptool.searchResults(query)
+            #     self.origin = results
