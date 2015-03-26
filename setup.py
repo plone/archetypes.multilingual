@@ -3,7 +3,7 @@ from setuptools import find_packages
 from setuptools import setup
 import os
 
-version = '3.0.dev0'
+version = '3.0'
 
 setup(
     name='archetypes.multilingual',

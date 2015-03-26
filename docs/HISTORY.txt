@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0 - Unreleased
+3.0 (2015-03-26)
 ----------------
 
 - Adapt archetypes.multilingual to work on Plone 5
