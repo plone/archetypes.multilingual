@@ -10,8 +10,8 @@ New:
 
 Fixes:
 
-- *add item here*
-
+- The ``ILanguage`` implementation for Archetypes was broken. This close #13.
+  [keul]
 
 3.0.1 (2015-07-18)
 ------------------
@@ -27,8 +27,10 @@ Fixes:
   [bloodbare]
 
 
-1.3dev - Unreleased
--------------------
+2.0 (2015-03-26)
+----------------
+
+- Compatibility release for PAM 2.0.
 
 - Remove archetypes.testcase test dependency.
   [timo]
