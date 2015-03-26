@@ -26,6 +26,11 @@ Fixes:
 - Adapt archetypes.multilingual to work on Plone 5
   [bloodbare]
 
+2.0.1 (unreleased)
+------------------
+
+- Nothing changed yet.
+
 
 2.0 (2015-03-26)
 ----------------
