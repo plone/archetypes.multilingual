@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.root import getNavigationRootObject
 from plone.app.multilingual.interfaces import ILanguage
@@ -21,7 +23,8 @@ class ATLanguage(object):
             # This should probably be fixed in plone.app.layout getNavigationRootObject
             # Right now navigation root of a temporary object is Plone site due to acquisition
             # https://github.com/plone/plone.app.layout/issues/57
-            context = self.context.aq_parent.aq_parent.aq_parent
+            # We can manually construct the correct `context`, though...
+            context = aq_parent(aq_parent(aq_parent(aq_inner(self.context))))
             navroot = getNavigationRootObject(context, getSite())
             if navroot != self.context:
                 try:
