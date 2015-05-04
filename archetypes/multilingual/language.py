@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.root import getNavigationRootObject
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import LANGUAGE_INDEPENDENT
 from zope import interface
 from zope.component.hooks import getSite
-
 
 class ATLanguage(object):
 
@@ -16,9 +17,11 @@ class ATLanguage(object):
 
     def get_language(self):
         language = self.context.Language()
-        portal_factory = getToolByName(self, 'portal_factory', None)
-        if portal_factory is not None and portal_factory.isTemporary(self):
-            navroot = getNavigationRootObject(self.context, getSite())
+        portal_factory = getToolByName(self.context, 'portal_factory', None)
+        if portal_factory is not None and portal_factory.isTemporary(self.context):
+            # get the folder portal_factory was invoked in
+            context = aq_parent(aq_parent(aq_parent(aq_inner(self.context))))
+            navroot = getNavigationRootObject(context, getSite())
             if navroot != self.context:
                 language = ILanguage(navroot).get_language()
         if not language:
