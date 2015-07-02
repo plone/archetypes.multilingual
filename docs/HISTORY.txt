@@ -4,7 +4,8 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Any AT object can be adapted to ILanguage (not just ATContentTypes)
+  [ebrehault]
 
 
 3.0 (2015-03-26)

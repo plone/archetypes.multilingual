@@ -21,7 +21,7 @@
     </class>
 
     <adapter
-        for="Products.ATContentTypes.interfaces.IATContentType"
+        for="Products.Archetypes.interfaces.IBaseObject"
         provides="Products.CMFPlone.interfaces.ILanguage"
         factory=".language.ATLanguage" />
 
