@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.1 (unreleased)
+3.0.1 (2015-07-18)
 ------------------
 
 - Any AT object can be adapted to ILanguage (not just ATContentTypes).
