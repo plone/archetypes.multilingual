@@ -29,7 +29,8 @@ Fixes:
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- The ``ILanguage`` implementation for Archetypes was broken. This close #13.
+  [keul]
 
 
 2.0 (2015-03-26)
