@@ -1,5 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:monkey="http://namespaces.plone.org/monkey"
@@ -76,5 +77,30 @@
         for="Products.ATContentTypes.interfaces.IATContentType
              OFS.interfaces.IObjectWillBeRemovedEvent"
         handler="plone.app.multilingual.subscriber.unindex_language_independent"/>
+
+
+    <configure zcml:condition="not-installed zope.container">
+        <subscriber
+            for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+                 zope.app.container.interfaces.IObjectAddedEvent"
+            handler=".subscriber.archetypes_creation_handler"/>
+    </configure>
+
+    <configure zcml:condition="installed zope.container">
+        <subscriber
+            for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+                 zope.container.interfaces.IObjectAddedEvent"
+            handler=".subscriber.archetypes_creation_handler"/>
+    </configure>
+
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             zope.lifecycleevent.interfaces.IObjectCopiedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
+
+    <subscriber
+        for="archetypes.multilingual.interfaces.IArchetypesTranslatable
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".subscriber.archetypes_creation_handler"/>
 
 </configure>

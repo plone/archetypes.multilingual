@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Acquisition import aq_parent
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
@@ -8,6 +9,17 @@ from zope.event import notify
 from zope.lifecycleevent import Attributes
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+from plone.dexterity.interfaces import IDexterityContent
+from plone.app.multilingual.subscriber import set_recursive_language
+from plone.app.multilingual.interfaces import IMutableTG
+from plone.app.multilingual.interfaces import ITranslatable
+from plone.app.multilingual.interfaces import LANGUAGE_INDEPENDENT
+
+from zope.globalrequest import getRequest
+from zope.lifecycleevent import modified
+from zope.lifecycleevent.interfaces import IObjectRemovedEvent
+from Products.CMFCore.utils import getToolByName
+from Acquisition import aq_inner
 
 
 class LanguageIndependentModifier(object):
@@ -20,6 +32,10 @@ class LanguageIndependentModifier(object):
         if IArchetypesTranslatable.providedBy(content):
             if IObjectModifiedEvent.providedBy(event):
                 self.handle_modified(content)
+
+    @property
+    def is_translatable(self):
+        return not IDexterityContent.providedBy(self.obj)
 
     def handle_modified(self, content):
         canonical = ITranslationManager(content).query_canonical()
@@ -58,3 +74,61 @@ class LanguageIndependentModifier(object):
         return translations_list_to_process
 
 handler = LanguageIndependentModifier()
+
+
+def get_parent(obj):
+    portal_factory = getToolByName(obj, 'portal_factory', None)
+    if portal_factory is not None and portal_factory.isTemporary(obj):
+        # created by portal_factory
+        parent = aq_parent(aq_parent(aq_parent(aq_inner(obj))))
+    else:
+        parent = aq_parent(aq_inner(obj))
+    return parent
+
+
+def archetypes_creation_handler(obj, event):
+    """Subscriber to set language on the child folder
+    It can be a
+    - IObjectRemovedEvent - don't do anything
+    - IObjectMovedEvent
+    - IObjectAddedEvent
+    - IObjectCopiedEvent
+    """
+    # if not translatable
+    if (not IObjectRemovedEvent.providedBy(event)
+       and IDexterityContent.providedBy(obj)):
+        return
+
+    # On ObjectCopiedEvent and ObjectMovedEvent aq_parent(event.object) is
+    # always equal to event.newParent.
+    parent = get_parent(event.object)
+
+    # special parent handling
+    if not ITranslatable.providedBy(parent):
+        set_recursive_language(obj, LANGUAGE_INDEPENDENT)
+        return
+
+    # Normal use case
+    # We set the tg, linking
+    language = ILanguage(parent).get_language()
+    set_recursive_language(obj, language)
+
+    request = getattr(event.object, 'REQUEST', getRequest())
+    try:
+        ti = get_translation_info(request)
+    except AttributeError:
+        return
+
+    IMutableTG(obj).set(ti['tg'])
+    modified(obj)
+    tm = ITranslationManager(obj)
+    old_obj = tm.get_translation(ti['source_language'])
+    ILanguageIndependentFieldsManager(old_obj).copy_fields(obj)
+
+
+def get_translation_info(request):
+    info = {'tg': request.get('tg'),
+            'source_language': request.get('source_language')}
+    if not info.get('tg') or not info.get('source_language'):
+        raise AttributeError
+    return info
