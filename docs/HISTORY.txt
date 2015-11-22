@@ -4,7 +4,11 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add tests when content is added with portal_factory (old way)
+  [bsuttor]
+
+- Override Dexterity add transalation for Archetypes
+  [bsuttor]
 
 
 2.0 (2015-03-26)
