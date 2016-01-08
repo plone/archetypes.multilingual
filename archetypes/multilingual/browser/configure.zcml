@@ -14,7 +14,7 @@
           manager="plone.app.layout.viewlets.interfaces.IAboveContent"
           class=".viewlets.addFormATIsATranslationViewlet"
           template="templates/add-form-is-translation.pt"
-          layer="plone.app.multilingual.interfaces.IPloneAppMultilingualInstalled"
+          layer="archetypes.multilingual.interfaces.IArchetypesMultilingualInstalled"
           permission="zope.Public"
           />
 
