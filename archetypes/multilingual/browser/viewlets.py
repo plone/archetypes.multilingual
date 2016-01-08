@@ -5,11 +5,10 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ITranslatable
 from plone.app.multilingual.browser.viewlets import AddFormIsATranslationViewlet
-from archetypes.multilingual import logger
 
 
 class addFormATIsATranslationViewlet(AddFormIsATranslationViewlet):
-    """ Notice the user that this add form is a translation
+    """ Notify the user that this add form is a translation
     """
     available = False
 
