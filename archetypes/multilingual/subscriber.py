@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Acquisition import aq_parent
+from archetypes.multilingual.interfaces import IArchetypesMultilingualInstalled
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
 from plone.app.multilingual.interfaces import ILanguage
 from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
@@ -94,6 +95,10 @@ def archetypes_creation_handler(obj, event):
     - IObjectAddedEvent
     - IObjectCopiedEvent
     """
+    # if not installed
+    if (not IArchetypesMultilingualInstalled.providedBy(obj.REQUEST)):
+        return
+    
     # if not translatable
     if (not IObjectRemovedEvent.providedBy(event)
        and IDexterityContent.providedBy(obj)):
