@@ -26,12 +26,6 @@ Fixes:
 - Adapt archetypes.multilingual to work on Plone 5
   [bloodbare]
 
-2.0.1 (unreleased)
-------------------
-
-- The ``ILanguage`` implementation for Archetypes was broken. This close #13.
-  [keul]
-
 
 2.0 (2015-03-26)
 ----------------
