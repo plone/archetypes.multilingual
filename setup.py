@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import find_packages
 from setuptools import setup
-import os
 
 version = '3.0.2.dev0'
 
@@ -14,10 +13,12 @@ setup(
         open('CHANGES.rst').read(),
     ]),
     # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Framework :: Plone',
+        'Framework :: Plone :: 5.0',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
     ],
     keywords='',
     author='awello',
@@ -33,7 +34,6 @@ setup(
         'Products.ATContentTypes',
         'plone.app.multilingual',
         'collective.monkeypatcher',
-        # -*- Extra requirements: -*-
     ],
     extras_require={
         'test': [
