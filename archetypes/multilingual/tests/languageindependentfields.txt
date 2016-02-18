@@ -70,5 +70,3 @@ Note: This should happen via event subscriber outside of tests.
     >>> manager.update()
     >>> manager.add_translation('en')
     >>> obj_en = manager.get_translation('en')
-    >>> import transaction; transaction.commit()
-
