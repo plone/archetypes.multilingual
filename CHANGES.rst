@@ -4,13 +4,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-New:
-
-- *add item here*
-
 Fixes:
 
-- *add item here*
+- Removed transaction commit in integration test.  [gforcada]
 
 
 3.0.1 (2015-07-18)
