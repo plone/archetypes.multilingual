@@ -4,9 +4,8 @@ from plone.app.multilingual.interfaces import ITranslationCloner
 from zope import interface
 
 
+@interface.implementer(ITranslationCloner)
 class Cloner(object):
-
-    interface.implements(ITranslationCloner)
 
     def __init__(self, context):
         self.context = context
