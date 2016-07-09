@@ -7,9 +7,8 @@ from zope import interface
 from zope.component.hooks import getSite
 
 
+@interface.implementer(ILanguage)
 class ATLanguage(object):
-
-    interface.implements(ILanguage)
 
     def __init__(self, context):
         self.context = context

@@ -3,8 +3,8 @@ from plone.app.multilingual.interfaces import ILanguageIndependentFieldsManager
 from zope import interface
 
 
+@interface.implementer(ILanguageIndependentFieldsManager)
 class LanguageIndependentFieldsManager(object):
-    interface.implements(ILanguageIndependentFieldsManager)
 
     def __init__(self, context):
         self.context = context
