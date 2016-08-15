@@ -21,7 +21,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
     ],
-    keywords='',
+    keywords='archetypes multilingual i18n translation',
     author='awello',
     author_email='awello@gmail.com',
     url='https://github.com/plone/archetypes.multilingual',
