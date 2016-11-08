@@ -14,7 +14,7 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Better, narrative name in GS profile [jensens]
 
 
 3.0.3 (2016-08-15)
