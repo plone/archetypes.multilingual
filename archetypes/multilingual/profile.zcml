@@ -5,8 +5,8 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="archetypes.multilingual"
-      description="Multilingual support for Archetypes"
+      title="Multilingual Support (Archetypes)"
+      description="Multilingual support for Archetypes (archetypes.multilingual)"
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
@@ -14,9 +14,9 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="Remove Archetypes Multilingual Support"
+      title="Multilingual Support (Archetypes) [uninstall]"
       directory="profiles/uninstall"
-      description="Removes the components of Archetypes Multilingual."
+      description="Removes archetypes.multilingual."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
