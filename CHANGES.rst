@@ -4,14 +4,6 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
-Breaking changes:
-
-- *add item here*
-
-New features:
-
-- *add item here*
-
 Bug fixes:
 
 - Better, narrative name in GS profile [jensens]
