@@ -12,7 +12,7 @@ from plone.app.testing import setRoles
 from plone.testing.z2 import Browser
 
 import transaction
-import unittest2 as unittest
+import unittest
 
 auth_header = 'Basic {0:s}:{1:s}'.format(TEST_USER_NAME, TEST_USER_PASSWORD)
 
