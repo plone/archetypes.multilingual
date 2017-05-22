@@ -1,8 +1,7 @@
 include *.txt
 include *.rst
 
-recursive-include archetypes *
-recursive-include docs *
+graft docs
+graft archetypes
 
-global-exclude *.pyc
-global-exclude .DS_Store
+global-exclude *.py[co]
