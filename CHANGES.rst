@@ -1,6 +1,23 @@
 Changelog
 =========
 
+3.0.6 (unreleased)
+------------------
+
+Breaking changes:
+
+- *add item here*
+
+New features:
+
+- *add item here*
+
+Bug fixes:
+
+- Hide uninstall from site setup screen.
+  [jensens]
+
+
 3.0.5 (2017-06-03)
 ------------------
 
