@@ -20,4 +20,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="archetypes.multilingual-hiddenprofiles" />
+
 </configure>
