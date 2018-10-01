@@ -28,7 +28,7 @@ setup(
     author_email='awello@gmail.com',
     url='https://github.com/plone/archetypes.multilingual',
     license='GPL',
-    packages=find_packages(exclude=['ez_setup']),
+    packages=find_packages(),
     namespace_packages=['archetypes'],
     include_package_data=True,
     zip_safe=False,
