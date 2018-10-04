@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import generate_unique_id
 from Products.Five import BrowserView
 
 
@@ -17,7 +18,7 @@ class MultilingualATAddForm(BrowserView):
         if type_name is None:
             raise Exception('Type name not specified')
 
-        id = self.context.generateUniqueId(type_name)
+        id = generate_unique_id(type_name)
 
         types_tool = getToolByName(self.context, 'portal_types')
 
