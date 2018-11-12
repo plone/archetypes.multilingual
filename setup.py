@@ -31,7 +31,7 @@ setup(
     install_requires=[
         'setuptools',
         'Products.ATContentTypes',
-        'plone.app.multilingual',
+        'plone.app.multilingual >= 2.0.4dev, < 3.0',
         'collective.monkeypatcher',
         'plone.api',
         # -*- Extra requirements: -*-

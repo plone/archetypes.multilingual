@@ -24,7 +24,7 @@ class MultilingualATAddForm(BrowserView):
         self.request.translation_info
 
     def _get_original_object(self):
-        uid = self.request.get('type', None)
+        uid = self.request.get('uid', None)
 
         if uid is None:
             raise Exception('Original object not specified')
