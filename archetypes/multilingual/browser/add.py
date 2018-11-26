@@ -43,9 +43,8 @@ class MultilingualATAddForm(BrowserView):
 
         if type_name in self.context.portal_factory.getFactoryTypes():
             new_url = 'portal_factory/' + type_name + '/' + id + '/at_babel_edit'
-            new_url = '%s?tg=%s&source_language=%s' % (new_url,
-                                                       self.tg,
-                                                       self.source_language)
+            new_url = '%s?persistent_tg=%s&persistent_source_language=%s' % (
+                new_url, self.tg, self.source_language)
             return self.request.response.redirect(new_url)
             # state.set(status='factory',
             #           next_action='redirect_to:string:%s' % new_url)
