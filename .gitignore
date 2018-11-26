@@ -2,9 +2,14 @@
 *.mo
 *.py[c|o]
 /.Python
+/.installed.cfg
+/.mr.developer.cfg
 /bin
 /build/*
+/develop-eggs/
 /dist/*
 /include
 /lib
+/parts/
+/src/
 Paste*
