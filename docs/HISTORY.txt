@@ -4,6 +4,12 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Remove archetypes.testcase test dependency.
+  [timo]
+
+- The ``ILanguage`` implementation for Archetypes was broken. This close #13.
+  [keul, frisi]
+
 - Add tests when content is added with portal_factory (old way)
   [bsuttor]
 

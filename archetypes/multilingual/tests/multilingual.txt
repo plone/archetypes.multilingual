@@ -4,8 +4,6 @@ testing the multilingualsupport
 creating some sample-content::
 
     >>> portal = layer['portal']
-    >>> language_tool = portal.portal_languages
-    >>> language_tool.start_neutral = 0
     >>> from plone.app.testing import TEST_USER_ID, setRoles
     >>> setRoles(portal, TEST_USER_ID, ['Manager'])
     >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample')

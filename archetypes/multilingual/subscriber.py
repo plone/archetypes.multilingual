@@ -127,8 +127,8 @@ def archetypes_creation_handler(obj, event):
 
 
 def get_translation_info(request):
-    info = {'tg': request.get('tg'),
-            'source_language': request.get('source_language')}
+    info = {'tg': request.get('persistent_tg'),
+            'source_language': request.get('persistent_source_language')}
     if not info.get('tg') or not info.get('source_language'):
         raise AttributeError
     return info
