@@ -1,3 +1,6 @@
 include *.rst
 graft archetypes
 global-exclude *.py[co]
+include pyproject.toml
+recursive-exclude news *
+exclude news
