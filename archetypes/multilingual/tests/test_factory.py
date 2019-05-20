@@ -55,6 +55,21 @@ class TestFactory(unittest.TestCase):
         self.assertIn(
             'id="babel-edit"', self.browser.contents)
 
+    def test_factory_creation_on_private_folder(self):
+        self.browser.addHeader('Authorization', auth_header)
+
+        doc_fr_id = self.lrf_fr.invokeFactory('Document', 'fr-document')
+        doc_fr = self.lrf_fr[doc_fr_id]
+
+        # the target folder is "private"
+        wftool = getToolByName(self.portal, 'portal_workflow')
+        wftool.doActionFor(self.lrf_nl, 'retract')
+        transaction.commit()
+
+        self.browser.open('{0:s}/@@create_translation?language=nl'.format(doc_fr.absolute_url()))
+        self.assertIn(
+            'id="babel-edit"', self.browser.contents)
+
     def test_link_between_documents(self):
         self.browser.addHeader('Authorization', auth_header)
 

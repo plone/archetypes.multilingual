@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
 from OFS.Folder import Folder
 from Testing import ZopeTestCase as ztc
 from plone.app.testing import FunctionalTesting
@@ -48,6 +49,10 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         if 'Products.ATContentTypes:default' in profiles:
             applyProfile(portal, 'Products.ATContentTypes:default')
         applyProfile(portal, 'archetypes.multilingual:default')
+        # set default workflow
+        wftool = getToolByName(portal, 'portal_workflow')
+        wftool.setDefaultChain('simple_publication_workflow')
+
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
 
