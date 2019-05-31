@@ -13,13 +13,14 @@ setup(
         open('README.txt').read(),
         open(os.path.join('docs', 'HISTORY.txt')).read(),
     ]),
-    # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Get more strings from https://pypi.org/classifiers/
     classifiers=[
         'Framework :: Plone',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
     ],
-    keywords='',
+    keywords='archetypes multilingual i18n translation',
     author='awello',
     author_email='awello@gmail.com',
     url='https://github.com/plone/archetypes.multilingual',
@@ -34,7 +35,6 @@ setup(
         'plone.app.multilingual >= 2.0.4dev, < 3.0',
         'collective.monkeypatcher',
         'plone.api',
-        # -*- Extra requirements: -*-
     ],
     extras_require={
         'test': [
