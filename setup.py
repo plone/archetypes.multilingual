@@ -16,6 +16,7 @@ setup(
     # https://pypi.org/classifiers/
     classifiers=[
         'Framework :: Plone',
+        'Framework :: Plone :: Addon',
         'Framework :: Plone :: 5.0',
         'Framework :: Plone :: 5.1',
         'Framework :: Plone :: 5.2',
@@ -42,6 +43,7 @@ setup(
         'test': [
             'plone.app.testing',
             'plone.app.multilingual[test]',
+            'plone.app.contenttypes[archetypes]',
         ]
     },
     entry_points="""
