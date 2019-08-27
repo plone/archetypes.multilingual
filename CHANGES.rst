@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.7 (2019-08-27)
+------------------
+
+Bug fixes:
+
+
+- Fix test dependency for Plone 5.2
+  [jensens] (#28)
+
 
 3.0.6 (2017-11-24)
 ------------------
