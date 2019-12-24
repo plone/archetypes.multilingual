@@ -25,10 +25,8 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         import archetypes.multilingual
         import archetypes.testcase
 
-        xmlconfig.file('testing.zcml', archetypes.multilingual,
-                       context=configurationContext)
-        xmlconfig.file('configure.zcml', archetypes.testcase,
-                       context=configurationContext)
+        xmlconfig.file('testing.zcml', archetypes.multilingual, context=configurationContext)
+        xmlconfig.file('configure.zcml', archetypes.testcase, context=configurationContext)
 
         z2.installProduct(app, 'archetypes.testcase')
 
@@ -46,13 +44,14 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         applyProfile(portal, 'archetypes.multilingual:testing')
         applyProfile(portal, 'archetypes.testcase:default')
 
+
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()
 
 ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(ARCHETYPESMULTILINGUAL_FIXTURE,),
-    name="archetypes.multilingual:Integration")
+    bases=(ARCHETYPESMULTILINGUAL_FIXTURE,), name="archetypes.multilingual:Integration"
+)
 ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(ARCHETYPESMULTILINGUAL_FIXTURE,),
-    name="archetypes.multilingual:Functional")
+    bases=(ARCHETYPESMULTILINGUAL_FIXTURE,), name="archetypes.multilingual:Functional"
+)
 
-optionflags = (doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE)
+optionflags = doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE

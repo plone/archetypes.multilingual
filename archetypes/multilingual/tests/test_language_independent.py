@@ -79,6 +79,7 @@ class TestLanguageIndependentFields(unittest.TestCase):
         german.setTitle('German title')
         self.failIfEqual(english.Title(), german.Title())
 
+
 #     def test_textfield(self):
 #         english = makeContent(self.folder, 'SimpleType', 'doc')
 #         english.setLanguage('en')

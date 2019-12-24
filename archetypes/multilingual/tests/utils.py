@@ -9,5 +9,7 @@ def makeContent(context, portal_type, id='doc', **kw):
 def makeTranslation(content, language='en'):
     manager = ITranslationManager(content)
     manager.add_translation(language)
-    import transaction; transaction.commit()
+    import transaction
+
+    transaction.commit()
     return manager.get_translation(language)

@@ -26,7 +26,9 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
         language_tool.addSupportedLanguage('es')
 
     def test_monkey_non_folderish(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD))
+        self.browser.addHeader(
+            'Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD)
+        )
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         folder = makeContent(self.portal, 'Folder', id='folder')
@@ -41,7 +43,9 @@ class TestLanguageMonkeyPatch(unittest.TestCase):
         self.assertEqual(ILanguage(folder['doc']).get_language(), 'ca')
 
     def test_monkey_folderish(self):
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD))
+        self.browser.addHeader(
+            'Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD)
+        )
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         folder = makeContent(self.portal, 'Folder', id='folder')

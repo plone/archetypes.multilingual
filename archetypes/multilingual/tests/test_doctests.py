@@ -13,24 +13,31 @@ integration_tests = [
     'monkey.txt',
 ]
 
-functional_tests = [
-]
+functional_tests = []
 
 
 def test_suite():
     return unittest.TestSuite(
-        [layered(doctest.DocFileSuite('%s' % f,
-                    package='archetypes.multilingual.tests',
-                    optionflags=optionflags),
-                 layer=ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING)
-            for f in integration_tests]
-        +
-        [layered(doctest.DocFileSuite('%s' % f,
-                    package='archetypes.multilingual.tests',
-                    optionflags=optionflags),
-                 layer=ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING)
-            for f in functional_tests]
+        [
+            layered(
+                doctest.DocFileSuite(
+                    '%s' % f, package='archetypes.multilingual.tests', optionflags=optionflags
+                ),
+                layer=ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING,
+            )
+            for f in integration_tests
+        ]
+        + [
+            layered(
+                doctest.DocFileSuite(
+                    '%s' % f, package='archetypes.multilingual.tests', optionflags=optionflags
+                ),
+                layer=ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING,
+            )
+            for f in functional_tests
+        ]
     )
+
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')
