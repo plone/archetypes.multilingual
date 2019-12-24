@@ -1,22 +1,14 @@
-from Acquisition import aq_parent
-from zope.component.hooks import getSite
-from zope.component import getUtility
 from zope.component import queryAdapter
 from zope.event import notify
 from zope.lifecycleevent import Attributes
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.lifecycleevent.interfaces import IObjectModifiedEvent
 
-from Products.CMFCore.utils import getToolByName
-
 from archetypes.multilingual.interfaces import IArchetypesTranslatable
 
 from plone.multilingual.interfaces import ILanguage
-from plone.multilingual.interfaces import ITranslatable
 from plone.multilingual.interfaces import ILanguageIndependentFieldsManager
 from plone.multilingual.interfaces import ITranslationManager
-
-from Products.CMFPlone.interfaces import IPloneSiteRoot
 
 
 class LanguageIndependentModifier(object):
@@ -66,5 +58,5 @@ class LanguageIndependentModifier(object):
                 translations_list_to_process.append(translations[language])
         return translations_list_to_process
 
-handler = LanguageIndependentModifier()
 
+handler = LanguageIndependentModifier()
