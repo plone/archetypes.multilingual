@@ -4,25 +4,15 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-Breaking changes:
-
-- *add item here*
-
-New features:
-
-- *add item here*
-
 Bug fixes:
-
-- *add item here*
-
-
-2.1.0 (2019-05-31)
-------------------
 
 - Add test for fix regarding "Insufficient Privileges" errors.
   See https://github.com/plone/plone.app.multilingual/pull/351
   [witsch]
+
+
+2.1.0 (2019-05-31)
+------------------
 
 - Remove archetypes.testcase test dependency.
   [timo]
