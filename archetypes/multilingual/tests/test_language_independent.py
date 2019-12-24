@@ -18,39 +18,39 @@ class TestLanguageIndependentFields(unittest.TestCase):
         self.portal.portal_languages.addSupportedLanguage(language)
 
     def setLanguage(self, language):
-        request = self.layer['request']
-        request['set_language'] = language
+        request = self.layer["request"]
+        request["set_language"] = language
         self.portal.portal_languages.setLanguageBindings()
 
     def setupHomeFolder(self):
-        '''Creates the default user's home folder.'''
+        """Creates the default user's home folder."""
         login(self.portal, TEST_USER_NAME)
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.portal.invokeFactory('Folder', 'test-folder')
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
+        self.portal.invokeFactory("Folder", "test-folder")
         # setRoles(self.portal, TEST_USER_ID, ['Member'])
-        self.folder = self.portal['test-folder']
+        self.folder = self.portal["test-folder"]
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        self.addLanguage('de')
-        self.addLanguage('fr')
-        self.addLanguage('it')
-        self.setLanguage('en')
+        self.portal = self.layer["portal"]
+        self.addLanguage("de")
+        self.addLanguage("fr")
+        self.addLanguage("it")
+        self.setLanguage("en")
         self.setupHomeFolder()
 
     def testCTs(self):
         login(self.portal, TEST_USER_NAME)
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.portal.invokeFactory('SimpleType', 't1')
-        self.failUnless(hasattr(self.portal, 't1'))
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
+        self.portal.invokeFactory("SimpleType", "t1")
+        self.failUnless(hasattr(self.portal, "t1"))
 
     def testLanguageIndependentField(self):
-        english = makeContent(self.folder, 'SimpleType', 'doc')
-        english.setLanguage('en')
+        english = makeContent(self.folder, "SimpleType", "doc")
+        english.setLanguage("en")
 
-        contact = 'Fred Flintstone'
+        contact = "Fred Flintstone"
         english.setContactName(contact)
-        german = makeTranslation(english, 'de')
+        german = makeTranslation(english, "de")
         self.assertEqual(english.getContactName(), contact)
         self.assertEqual(english.getRawContactName(), contact)
         self.assertEqual(german.getContactName(), contact)
@@ -61,7 +61,7 @@ class TestLanguageIndependentFields(unittest.TestCase):
         # self.assertEqual(german.testing, english.contactName)
         self.assertEqual(english.contactName, german.contactName)
 
-        contact = 'Barney Rubble'
+        contact = "Barney Rubble"
         german.setContactName(contact)
         notify(ObjectEditedEvent(german))
         self.assertEqual(english.getContactName(), contact)
@@ -75,8 +75,8 @@ class TestLanguageIndependentFields(unittest.TestCase):
         self.assertEqual(english.contactName, german.contactName)
 
         # Sanity check: not all fields are language independent
-        english.setTitle('English title')
-        german.setTitle('German title')
+        english.setTitle("English title")
+        german.setTitle("German title")
         self.failIfEqual(english.Title(), german.Title())
 
 

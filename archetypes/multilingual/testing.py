@@ -25,24 +25,28 @@ class ArchetypesMultilingualLayer(PloneSandboxLayer):
         import archetypes.multilingual
         import archetypes.testcase
 
-        xmlconfig.file('testing.zcml', archetypes.multilingual, context=configurationContext)
-        xmlconfig.file('configure.zcml', archetypes.testcase, context=configurationContext)
+        xmlconfig.file(
+            "testing.zcml", archetypes.multilingual, context=configurationContext
+        )
+        xmlconfig.file(
+            "configure.zcml", archetypes.testcase, context=configurationContext
+        )
 
-        z2.installProduct(app, 'archetypes.testcase')
+        z2.installProduct(app, "archetypes.testcase")
 
         # Support sessionstorage in tests
-        app.REQUEST['SESSION'] = self.Session()
-        if not hasattr(app, 'temp_folder'):
-            tf = Folder('temp_folder')
-            app._setObject('temp_folder', tf)
+        app.REQUEST["SESSION"] = self.Session()
+        if not hasattr(app, "temp_folder"):
+            tf = Folder("temp_folder")
+            app._setObject("temp_folder", tf)
             transaction.commit()
 
         ztc.utils.setupCoreSessions(app)
 
     def setUpPloneSite(self, portal):
         # install into the Plone site
-        applyProfile(portal, 'archetypes.multilingual:testing')
-        applyProfile(portal, 'archetypes.testcase:default')
+        applyProfile(portal, "archetypes.multilingual:testing")
+        applyProfile(portal, "archetypes.testcase:default")
 
 
 ARCHETYPESMULTILINGUAL_FIXTURE = ArchetypesMultilingualLayer()

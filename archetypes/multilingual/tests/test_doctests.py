@@ -8,9 +8,9 @@ import doctest
 import unittest2 as unittest
 
 integration_tests = [
-    'languageindependentfields.txt',
-    'multilingual.txt',
-    'monkey.txt',
+    "languageindependentfields.txt",
+    "multilingual.txt",
+    "monkey.txt",
 ]
 
 functional_tests = []
@@ -21,7 +21,9 @@ def test_suite():
         [
             layered(
                 doctest.DocFileSuite(
-                    '%s' % f, package='archetypes.multilingual.tests', optionflags=optionflags
+                    "%s" % f,
+                    package="archetypes.multilingual.tests",
+                    optionflags=optionflags,
                 ),
                 layer=ARCHETYPESMULTILINGUAL_INTEGRATION_TESTING,
             )
@@ -30,7 +32,9 @@ def test_suite():
         + [
             layered(
                 doctest.DocFileSuite(
-                    '%s' % f, package='archetypes.multilingual.tests', optionflags=optionflags
+                    "%s" % f,
+                    package="archetypes.multilingual.tests",
+                    optionflags=optionflags,
                 ),
                 layer=ARCHETYPESMULTILINGUAL_FUNCTIONAL_TESTING,
             )
@@ -39,5 +43,5 @@ def test_suite():
     )
 
 
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')
+if __name__ == "__main__":
+    unittest.main(defaultTest="test_suite")
