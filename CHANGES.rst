@@ -1,28 +1,30 @@
 Changelog
 =========
 
-1.3dev - Unreleased
--------------------
+1.3 (unreleased)
+----------------
 
-1.2 - 2013-09-24
+- Nothing changed yet.
+
+1.2 (2013-09-24)
 ----------------
 
 - Add french translations
 
-1.0 - 2013-04-16
+1.0 (2013-04-16)
 ----------------
 
 - Correct js url on portal_factory babel view [ramon]
 - Show selector if num languages is large [pysailor]
 
-1.0rc1 - 2013-01-26
+1.0rc1 (2013-01-26)
 -------------------
 
 - Update .po files and .pot
 - Fix some failing tests
 - Bumped version to match the others [sneridagh]
 
-1.0b3 - 2012-10-04
+1.0b3 (2012-10-04)
 ------------------
 
 - Added tests [sneridagh]
@@ -30,7 +32,7 @@ Changelog
 - Tuned AT babel view [ramon]
 - Monkey language field [ramon]
 
-1.0a1 - 2012-04-03
+1.0a1 (2012-04-03)
 ------------------
 
 - Added needed babel view template [sneridagh]
