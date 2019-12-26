@@ -58,5 +58,9 @@ class LanguageIndependentModifier(object):
                 translations_list_to_process.append(translations[language])
         return translations_list_to_process
 
+    @property
+    def __name__(self):
+        return "handler"
+
 
 handler = LanguageIndependentModifier()
