@@ -1,2 +1,0 @@
-Fix export of components by adding a ``__name__`` property to the handler.
-[maurits]
