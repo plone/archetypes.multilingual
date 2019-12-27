@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+2.1.2 (2019-12-27)
+------------------
+
+Bug fixes:
+
+
+- Fix export of components by adding a ``__name__`` property to the handler.
+  [maurits] (#27)
+
 
 2.1.1 (2019-12-24)
 ------------------
