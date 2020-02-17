@@ -11,15 +11,6 @@
       provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
       factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"
     />
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ITranslationCloner"
-        factory="archetypes.multilingual.cloner.Cloner"/>
-
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
-        factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"/>
   </adapters>
   <subscribers>
     <subscriber

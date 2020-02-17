@@ -13,19 +13,6 @@
       factory="archetypes.multilingual.utils.LanguageIndependentFieldsManager"
       remove="True"
     />
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ITranslationCloner"
-        factory=".cloner.Cloner"
-        remove="True"
-    />
-
-    <adapter
-        for="archetypes.multilingual.interfaces.IArchetypesTranslatable"
-        provides="plone.app.multilingual.interfaces.ILanguageIndependentFieldsManager"
-        factory=".utils.LanguageIndependentFieldsManager"
-        remove="True"
-    />
   </adapters>
   <subscribers>
     <subscriber
