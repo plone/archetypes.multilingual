@@ -2,6 +2,13 @@
 from setuptools import find_packages
 from setuptools import setup
 
+import sys
+
+
+if sys.version_info[0] != 2:
+    # Prevent creating or installing a distribution with Python 3.
+    raise ValueError("archetypes.multilingual is based on Archetypes, which is Python 2 only.")
+
 version = '3.0.9.dev0'
 
 setup(
@@ -34,6 +41,7 @@ setup(
     namespace_packages=['archetypes'],
     include_package_data=True,
     zip_safe=False,
+    python_requires='==2.7.*',
     install_requires=[
         'setuptools',
         'Products.ATContentTypes',
